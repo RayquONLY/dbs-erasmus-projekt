@@ -20,14 +20,12 @@ Mögliche Entitäten:Bewerbungsdokument, Sprachnachweis, Sprache, Studienleistun
 Quelle: Partneruniversitäten-PDF 2026/27 
 Link: https://fakultaeten.hu-berlin.de/de/mnf/lehre_studium/internationales/erasmus/gesamtliste-mnf-erasmus-partneruniversitaeten_2026-27.pdf
 Wichtig für Projekt: Stammdaten und Platzvergabe (Land, Stadt, Universität, Erasmus-Code, Studienphase, Plätze pro Institut: Chemie, Geo, Informatik, Mathe, Physik) 
-Mögliche Entitäten: Land, PartnerUniversitaet, Institut, Studienphase, ErasmusAbkommen
-Austauschplatz, AkademischesJahr, Platzkontingent  
+Mögliche Entitäten: Land, PartnerUniversitaet, Institut, Studienphase, ErasmusAbkommen, Austauschplatz, AkademischesJahr, Platzkontingent  
 
 Quelle: Info-Präsentation Erasmus+ 
 Link: https://fakultaeten.hu-berlin.de/de/mnf/lehre_studium/internationales/erasmus/prasentation_erasmus-2025.pdf
 Wichtig für Projekt: Ablauf anschaulich und zeitlich strukturiert (Möglichkeiten, Motivation, Partneruniversitäten, Bewerbung, Unterlagen, Erasmusjahr, Zeitschiene, Learning Agreement, Finanzierung, Dokumente und Fristen) 
-Mögliche Entitäten: Bewerbung
-Bewerbungsdokument, Dokumenttyp, Nominierung, Partneruniversität, GrantAgreement, LearningAgreement, LearningAgreementVersion, Genehmigung, Gastkurs, HU-Modul, Kurszuordnung, Anerkennungsantrag, Dokumentfrist
+Mögliche Entitäten: Bewerbung, Bewerbungsdokument, Dokumenttyp, Nominierung, Partneruniversität, GrantAgreement, LearningAgreement, LearningAgreementVersion, Genehmigung, Gastkurs, HU-Modul, Kurszuordnung, Anerkennungsantrag, Dokumentfrist
 
 
 ## 4. Annahmen und Abgrenzungen
