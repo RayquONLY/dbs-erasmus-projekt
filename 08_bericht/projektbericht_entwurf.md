@@ -41,7 +41,8 @@ Regeln, Bedingungen und Sonderfälle (vollständige Bewerbungsunterlagen, B2-Spr
 - Sprache
 - Studienleistung
 - LearningAgreement
-- Gastkurs, HU-Modul
+- Gastkurs
+- HU-Modul
 - Kurszuordnung
 - Prüfungsausschuss
 - Partnervertrag
@@ -58,7 +59,8 @@ Stammdaten und Platzvergabe (Land, Stadt, Universität, Erasmus-Code, Studienpha
 **Mögliche Entitäten:** 
 - Land
 - PartnerUniversitaet
-- Institut, Studienphase
+- Institut
+- Studienphase
 - ErasmusAbkommen
 - Austauschplatz
 - AkademischesJahr
