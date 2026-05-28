@@ -10,7 +10,7 @@
 **Link:** 
 https://fakultaeten.hu-berlin.de/de/mnf/lehre_studium/internationales/erasmus/erasmus
 
-**Wichtig für Projekt:** 
+**Relevanz für Projekt:** 
 Kernprozess (Bewerbung, Nominierung, Learning, Agreement, Auslandsaufenthalt Transcript of Records, Anerkennung) 
 
 **Mögliche Entitäten:** 
@@ -32,7 +32,7 @@ Kernprozess (Bewerbung, Nominierung, Learning, Agreement, Auslandsaufenthalt Tra
 **Link:**
 https://fakultaeten.hu-berlin.de/de/mnf/lehre_studium/internationales/ins-ausland/faq
 
-**Wichtig für Projekt:** 
+**Relevanz für Projekt:** 
 Regeln, Bedingungen und Sonderfälle (vollständige Bewerbungsunterlagen, B2-Sprachniveau, 30 ECTS pro Semester, Sprachnachweise, Kursanrechnung, Partnerverträge, Restplätze, Verlängerung) 
 
 **Mögliche Entitäten:** 
@@ -53,7 +53,7 @@ Regeln, Bedingungen und Sonderfälle (vollständige Bewerbungsunterlagen, B2-Spr
 **Link:** 
 https://fakultaeten.hu-berlin.de/de/mnf/lehre_studium/internationales/erasmus/gesamtliste-mnf-erasmus-partneruniversitaeten_2026-27.pdf
 
-**Wichtig für Projekt:** 
+**Relevanz für Projekt:** 
 Stammdaten und Platzvergabe (Land, Stadt, Universität, Erasmus-Code, Studienphase, Plätze pro Institut: Chemie, Geo, Informatik, Mathe, Physik) 
 
 **Mögliche Entitäten:** 
@@ -71,7 +71,7 @@ Stammdaten und Platzvergabe (Land, Stadt, Universität, Erasmus-Code, Studienpha
 **Link:** 
 https://fakultaeten.hu-berlin.de/de/mnf/lehre_studium/internationales/erasmus/prasentation_erasmus-2025.pdf
 
-**Wichtig für Projekt:** 
+**Relevanz für Projekt:** 
 Ablauf anschaulich und zeitlich strukturiert (Möglichkeiten, Motivation, Partneruniversitäten, Bewerbung, Unterlagen, Erasmusjahr, Zeitschiene, Learning Agreement, Finanzierung, Dokumente und Fristen) 
 
 **Mögliche Entitäten:**  
