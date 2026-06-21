@@ -97,6 +97,176 @@ Ablauf anschaulich und zeitlich strukturiert (Möglichkeiten, Motivation, Partne
 
 ## 6. Use Cases
 
+### Use Case 1: Anmeldung - Bewerbung und Platzvergabe
+
+**Ziel:**  
+Ein Student reicht eine Bewerbung für einen Erasmus-Aufenthalt ein. Die Bewerbung wird geprüft. Bei erfolgreicher Auswahl wird ein Austauschplatz vergeben und eine Nominierung vorbereitet.
+
+**Akteure:**  
+- Student
+- Erasmus-Koordination der Fakultät
+- Erasmus-Koordinator des Instituts
+
+**Vorbedingungen:**  
+- Der Student ist an der HU immatrikuliert.
+- Eine Bewerbungsrunde für ein akademisches Jahr ist geöffnet.
+- Für das Institut und die gewünschte Studienphase gibt es passende Partneruniversitäten beziehungsweise Austauschplätze.
+
+**Nachbedingungen:**  
+- Die Bewerbung hat einen definierten Status.
+- Mögliche Statuswerte sind angenommen, abgelehnt, Warteliste, unvollständig oder zurückgezogen.
+- Bei Annahme ist die Bewerbung mit einem Austauschplatz und einer Nominierung verbunden.
+
+**Hauptablauf:**  
+1. Der Student nimmt an einer offenen Bewerbungsrunde teil.
+2. Das System zeigt verfügbare Partneruniversitäten nach Institut, Studienphase und akademischem Jahr an.
+3. Der Student wählt eine oder mehrere Partneruniversitäten als Präferenz aus.
+4. Der Student lädt Bewerbungsunterlagen hoch, zum Beispiel Lebenslauf, Motivationsschreiben, Leistungsübersicht und Sprachnachweis.
+5. Die Bewerbung wird eingereicht.
+6. Das System speichert die Bewerbung mit dem Status „eingereicht“.
+7. Die Erasmus-Koordination prüft die Bewerbung auf Vollständigkeit und Voraussetzungen.
+8. Die Erasmus-Koordination trifft eine Auswahlentscheidung.
+9. Bei erfolgreicher Auswahl wird ein Austauschplatz zugeordnet.
+10. Eine Nominierung für die Partneruniversität wird vorbereitet.
+11. Das System aktualisiert den Status der Bewerbung.
+
+**Alternativabläufe:**  
+- Die Bewerbung ist unvollständig. Das System markiert die Bewerbung als unvollständig.
+- Der Student erfüllt formale Voraussetzungen nicht. Die Bewerbung wird abgelehnt.
+- Es gibt mehr geeignete Bewerbungen als verfügbare Plätze. Die Bewerbung kann auf eine Warteliste gesetzt werden.
+- Der Student zieht die Bewerbung zurück. Das System setzt den Status auf „zurückgezogen“.
+
+**Funktionale Anforderungen:**  
+
+| Nr. | Anforderung |
+|---|---|
+| 1 | Verwaltung von Bewerbungsrunden |
+| 2 | Anzeige verfügbarer Partneruniversitäten beziehungsweise Austauschplätze |
+| 3 | Auswahl von Partneruniversitäten als Bewerbungspräferenzen |
+| 4 | Upload von Bewerbungsunterlagen |
+| 5 | Speicherung von Bewerbungen mit Status |
+| 6 | Prüfung der Bewerbung durch die Erasmus-Koordination |
+| 7 | Speicherung von Auswahlentscheidungen |
+| 8 | Zuordnung eines Austauschplatzes bei erfolgreicher Auswahl |
+| 9 | Erstellung beziehungsweise Speicherung einer Nominierung |
+| 10 | Statusverfolgung der Bewerbung |
+
+---
+
+### Use Case 2: Planung - Learning Agreement erstellen und Kurszuordnung planen
+
+**Ziel:**  
+Der Student plant sein Auslandsstudium, wählt Kurse an der Partneruniversität aus und erstellt ein Learning Agreement. Die geplanten Kurse werden HU-Modulen zugeordnet und anschließend genehmigt.
+
+**Akteure:**  
+- Student
+- Erasmus-Koordinator
+- Partneruniversität
+
+**Vorbedingungen:**  
+- Der Student wurde für einen Erasmus-Aufenthalt zugelassen beziehungsweise nominiert.
+- Die Partneruniversität ist im System hinterlegt.
+- Das Kursangebot der Partneruniversität ist verfügbar.
+- Der Student besitzt ein Benutzerkonto.
+
+**Nachbedingungen:**  
+- Ein Learning Agreement liegt vor.
+- Geplante Gastkurse sind HU-Modulen oder Anerkennungsbereichen zugeordnet.
+- Genehmigungen sind gespeichert.
+- Änderungen werden als neue Version gespeichert.
+
+**Hauptablauf:**  
+1. Der Student meldet sich im System an.
+2. Der Student wählt seine Partneruniversität aus.
+3. Das System zeigt verfügbare Kurse der Partneruniversität an.
+4. Der Student wählt geplante Gastkurse aus.
+5. Der Student ordnet die Gastkurse passenden HU-Modulen oder Anerkennungsbereichen zu.
+6. Das System prüft die Vollständigkeit der Angaben.
+7. Das System berechnet die geplanten Leistungspunkte.
+8. Der Student erstellt ein Learning Agreement.
+9. Das System speichert eine Version des Learning Agreements.
+10. Der Student reicht das Learning Agreement ein.
+11. Der Erasmus-Koordinator prüft die Planung.
+12. Der Erasmus-Koordinator genehmigt oder lehnt das Learning Agreement ab.
+13. Nach Genehmigung wird das Learning Agreement an die Partneruniversität weitergeleitet.
+14. Die Partneruniversität genehmigt oder lehnt das Learning Agreement ab.
+15. Das System speichert den endgültigen Status.
+
+**Alternativabläufe:**  
+- Das Learning Agreement wird abgelehnt. Eine Begründung wird gespeichert und der Student überarbeitet die Planung.
+- Während des Aufenthalts ändern sich Kurse. Das System erstellt eine neue Version des Learning Agreements.
+- Frühere Versionen bleiben archiviert.
+- Angaben zu Kursen oder Modulen sind unvollständig. Das System verhindert die Einreichung, bis die Angaben ergänzt wurden.
+
+**Funktionale Anforderungen:**  
+
+| Nr. | Anforderung |
+|---|---|
+| 1 | Verwaltung von Partneruniversitäten |
+| 2 | Anzeige von Kursangeboten |
+| 3 | Auswahl von Kursen durch Studenten |
+| 4 | Zuordnung von Kursen zu Modulen |
+| 5 | Automatische Erstellung des Learning Agreements |
+| 6 | Digitaler Genehmigungsworkflow des Learning Agreements über Koordinator und Partneruniversität |
+| 7 | Versionierung von Änderungen |
+
+---
+
+### Use Case 3: Kursanrechnung - Im Ausland erbrachte Leistungen anerkennen
+
+**Ziel:**  
+Die an der Partneruniversität erbrachten Leistungen werden nach Rückkehr des Studenten geprüft, anerkannt und dokumentiert.
+
+**Akteure:**  
+- Student
+- Prüfungsausschuss
+- Büro für Internationales Studieren
+
+**Vorbedingungen:**  
+- Der Auslandsaufenthalt wurde abgeschlossen.
+- Ein Learning Agreement liegt vor.
+- Das Transcript of Records wurde von der Partneruniversität ausgestellt.
+
+**Nachbedingungen:**  
+- Anerkannte Leistungen sind dokumentiert.
+- Anerkennungsentscheidungen wurden gespeichert.
+- Das Anerkennungsverfahren ist abgeschlossen.
+- Der Status des Auslandsaufenthalts kann auf „abgeschlossen“ gesetzt werden.
+
+**Hauptablauf:**  
+1. Der Student erhält das Transcript of Records von der Partneruniversität.
+2. Der Student lädt das Transcript of Records im System hoch.
+3. Der Student erstellt einen Anerkennungsantrag.
+4. Der Student fügt notwendige Dokumente hinzu, insbesondere Learning Agreement und Transcript of Records.
+5. Der Student reicht den Anerkennungsantrag ein.
+6. Der Prüfungsausschuss erhält den Antrag.
+7. Der Prüfungsausschuss prüft die erbrachten Leistungen.
+8. Der Prüfungsausschuss entscheidet für jede Leistung, ob sie anerkannt, teilweise anerkannt oder abgelehnt wird.
+9. Die Anerkennungsentscheidungen werden im System gespeichert.
+10. Das Büro für Internationales Studieren prüft die Vollständigkeit der Unterlagen.
+11. Das Anerkennungsverfahren wird abgeschlossen.
+12. Das System aktualisiert den Status des Auslandsaufenthalts.
+
+**Alternativabläufe:**  
+- Unterlagen fehlen. Das System markiert den Antrag als unvollständig.
+- Eine Leistung stimmt nicht mit dem Learning Agreement überein. Der Prüfungsausschuss fordert zusätzliche Informationen an.
+- Eine Leistung wird nicht anerkannt. Die Ablehnung wird mit Begründung gespeichert.
+- Der Student ergänzt fehlende Informationen. Der Antrag wird anschließend erneut geprüft.
+
+**Funktionale Anforderungen:**  
+
+| Nr. | Anforderung |
+|---|---|
+| 1 | Upload von Dokumenten |
+| 2 | Verwaltung von Anerkennungsanträgen |
+| 3 | Speicherung des Transcript of Records |
+| 4 | Speicherung erbrachter Leistungen |
+| 5 | Digitale Prüfung durch den Prüfungsausschuss |
+| 6 | Speicherung von Anerkennungsentscheidungen pro Leistung |
+| 7 | Prüfung durch das Büro für Internationales Studieren |
+| 8 | Statusverfolgung des Anerkennungsverfahrens |
+| 9 | Automatische Hinweise bei fehlenden Unterlagen |
+
 ## 7. Konzeptueller Entwurf
 
 ## 8. Logischer Entwurf
