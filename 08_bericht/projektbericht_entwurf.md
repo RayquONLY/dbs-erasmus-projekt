@@ -271,6 +271,114 @@ Die an der Partneruniversität erbrachten Leistungen werden nach Rückkehr des S
 
 ## 8. Logischer Entwurf
 
+## Grund-Entitäten
+
+Student (<u>matrikelnummer</u>, *studiengang_id*, vorname, nachname, email)
+
+Studiengang (<u>studiengang_id</u>, *institut_id*, name, abschluss)
+
+Institut (<u>institut_id</u>, *fakultät_id*, name)
+
+Fakultät (<u>fakultät_id</u>, name)
+
+Partneruniversität (<u>partneruniversität_erasmus_code</u>, *land_id*, name, stadt)
+
+Land (<u>land_id</u>, name, ländercode)
+
+Koordinator (<u>koordinator_id</u>, *institut_id*, email, name)
+
+Prüfungsausschuss (<u>prüfungsausschuss_id</u>, *institut_id*)
+
+Fakultät 1:n Institut  
+Institut 1:n Studiengang  
+Studiengang 1:n Student  
+Land 1:n Partneruniversität  
+Partneruniversität 1:n Austauschkontingent  
+Institut 1:n Austauschkontingent  
+
+## Bewerbung und Platzvergabe
+
+Austauschkontingent (<u>austauschkontingent_id</u>, *partneruniversität_erasmus_code*, *institut_id*, platzanzahl, studienphase, akademisches_jahr)
+
+Bewerbungsrunde (<u>bewerbungsrunde_id</u>, semester, anfangsfrist, endfrist, status)
+
+Bewerbung (<u>bewerbung_id</u>, *bewerbungsrunde_id*, *matrikelnummer*, status)
+
+Bewerbungsdokument (<u>bewerbungsdokument_id</u>, *bewerbung_id*, dokumenttyp =[leistungsspiegel, lebenslauf, motivationsschreiben], dateiname, einreichungsdatum, status)
+
+Sprachnachweis (<u>sprachnachweis_id</u>, *bewerbung_id*, sprache, niveau, nachweistyp, status)
+
+Bewerbung_Sprachnachweis (*bewerbung_id*, *sprachnachweis_id*)
+
+Nominierung (<u>nominierung_id</u>, *austauschkontingent_id*, *bewerbung_id*, *koordinator_id*, status, nominierungsdatum)
+
+Auswahlentscheidung (<u>auswahlentscheidung_id</u>, *bewerbung_id*, *koordinator_id*, entscheidungsdatum, status, entscheidungsgeber)
+
+Bewerbungspräferenz (<u>bewerbungspräferenz_id</u>, *bewerbung_id*, *austauschkontingent_id*, priorität)
+
+Student 1:n Bewerbung  
+Bewerbungsrunde 1:n Bewerbung  
+Bewerbung 1:n Bewerbungspräferenz  
+Austauschkontingent 1:n Bewerbungspräferenz  
+Bewerbung 1:n Bewerbungsdokument  
+Bewerbung n:m Sprachnachweis  
+Bewerbung 1:0..1 Auswahlentscheidung  
+Bewerbung 1:0..1 Nominierung  
+Austauschkontingent 1:n Nominierung  
+Koordinator 1:n Auswahlentscheidung  
+Koordinator 1:n Nominierung  
+
+## Aufenthalt und Planung
+
+Auslandsaufenthalt (<u>auslandsaufenthalt_id</u>, *nominierung_id*, semester, status, startdatum, enddatum)
+
+Gastkurs (<u>gastkurs_id</u>, *partneruniversität_erasmus_code*, name, fach, ects)
+
+HU-Modul (<u>hu_modul_id</u>, *studiengang_id*, name, fach, ects)
+
+Kurszuordnung (<u>kurszuordnung_id</u>, *LearningAgreementVersion_id*, *gastkurs_id*, *hu_modul_id*, status)
+
+LearningAgreement (<u>LearningAgreement_id</u>, *aufenthalt_id*, status, erstellungsdatum)
+
+LearningAgreementVersion (<u>LearningAgreementVersion_id</u>, *LearningAgreement_id*, versionsnummer, grund, status, erstellungsdatum)
+
+Genehmigung (<u>genehmigungs_id</u>, *LearningAgreementVersion_id*, *koordinator_id*, status, genehmigungsinstanz, genehmigungsdatum)
+
+Confirmation (<u>confirmation_id</u>, *auslandsaufenthalt_id*, typ, status, ausstellungsdatum, einreichungsdatum)
+
+Nominierung 1:0..1 Auslandsaufenthalt  
+Auslandsaufenthalt 1:0..1 LearningAgreement  
+LearningAgreement 1:n LearningAgreementVersion  
+LearningAgreementVersion 1:n Kurszuordnung  
+Gastkurs 1:n Kurszuordnung  
+HU-Modul 1:n Kurszuordnung  
+Partneruniversität 1:n Gastkurs  
+Studiengang 1:n HU-Modul  
+LearningAgreementVersion 1:n Genehmigung  
+Koordinator 1:n Genehmigung  
+Auslandsaufenthalt 1:n Confirmation  
+
+## Rückkehr und Anerkennung
+
+TranscriptOfRecords (<u>transcriptofrecords_id</u>, *auslandsaufenthalt_id*, status, ausstellungsdatum, einreichungsdatum)
+
+ErbrachteLeistung (<u>erbrachteleistungs_id</u>, *transcriptofrecords_id*, *gastkurs_id*, kursname, ects, note, bestanden)
+
+Anerkennungsantrag (<u>anerkennungsantrag_id</u>, *auslandsaufenthalt_id*, *prüfungsausschuss_id*, status, einreichungsdatum)
+
+Anerkennungsentscheidung (<u>anerkennungsentscheidung_id</u>, *anerkennungsantrag_id*, *erbrachteleistungs_id*, *hu_modul_id*, entscheidung, anerkannte_ects, entscheidungsdatum)
+
+Auslandsaufenthalt 1:0..1 TranscriptOfRecords  
+TranscriptOfRecords 1:n ErbrachteLeistung  
+Gastkurs 1:n ErbrachteLeistung  
+Auslandsaufenthalt 1:0..1 Anerkennungsantrag  
+Prüfungsausschuss 1:n Anerkennungsantrag  
+Anerkennungsantrag 1:n Anerkennungsentscheidung  
+ErbrachteLeistung 1:0..1 Anerkennungsentscheidung  
+HU-Modul 1:n Anerkennungsentscheidung  
+Institut 1:n Koordinator  
+Institut 1:1 Prüfungsausschuss
+
 ## 9. Datendefinition
 
 ## 10. Physischer Entwurf
