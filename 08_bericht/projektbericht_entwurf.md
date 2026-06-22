@@ -391,6 +391,13 @@ HU-Modul 1:n Anerkennungsentscheidung
 Institut 1:n Koordinator  
 Institut 1:1 Prüfungsausschuss
 
+Normalform:
+
+Das Modell befindet sich in der 3. Normalform.
+1. Normalform ist gegeben, da alle Attribute Atomar sind.
+2. Normalform ist gegeben, da die 1. Normalform gilt und jedes Nichtschlüsselattribut von jedem Schlüsselkandidaten voll funktional abhängig ist.
+3. Normalform ist gegeben, da die 2. Normalform gilt und kein Nichtschlüsselattribut transitiv von einem Schlüsselkandidaten abhängig ist.
+
 ## 9. Datendefinition
 
 ## 10. Physischer Entwurf
