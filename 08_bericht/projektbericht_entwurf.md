@@ -391,7 +391,7 @@ HU-Modul 1:n Anerkennungsentscheidung
 Institut 1:n Koordinator  
 Institut 1:1 Prüfungsausschuss
 
-Normalform:
+## Normalform:
 
 Das Modell befindet sich in der 3. Normalform.
 1. Normalform ist gegeben, da alle Attribute Atomar sind.
