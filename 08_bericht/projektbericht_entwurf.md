@@ -275,6 +275,10 @@ Die an der Partneruniversität erbrachten Leistungen werden nach Rückkehr des S
 
 ## 7. Konzeptueller Entwurf
 
+Für den Konzeptionellen Entwurf wurde ein ER-Diagram in Chen notation erstellt. 
+
+Siehe Bild "ER-dia-Erasmus.drawio.png"
+
 ## 8. Logischer Entwurf
 
 ## Grund-Entitäten
