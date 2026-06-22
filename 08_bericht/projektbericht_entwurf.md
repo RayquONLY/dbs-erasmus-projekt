@@ -101,6 +101,12 @@ Finanzierung, Wohnung, Versicherung und ähnliche Themen existieren im realen Er
 
 ## 5. Anforderungsanalyse
 
+Für die Anforderungsanalyse wurden drei für das Thema relevante Use-Cases definiert.
+
+1. Anmeldung - Bewerbung und Platzvergabe
+2. Planung - Learning Agreement erstellen und Kurszuordnung planen
+3. Kursanrechnung - Im Ausland erbrachte Leistungen anerkennen
+
 ## 6. Use Cases
 
 ### Use Case 1: Anmeldung - Bewerbung und Platzvergabe
@@ -212,9 +218,8 @@ Der Student plant sein Auslandsstudium, wählt Kurse an der Partneruniversität 
 | 2 | Anzeige von Kursangeboten |
 | 3 | Auswahl von Kursen durch Studenten |
 | 4 | Zuordnung von Kursen zu Modulen |
-| 5 | Automatische Erstellung des Learning Agreements |
-| 6 | Digitaler Genehmigungsworkflow des Learning Agreements über Koordinator und Partneruniversität |
-| 7 | Versionierung von Änderungen |
+| 5 | Digitaler Genehmigungsworkflow des Learning Agreements über Koordinator und Partneruniversität |
+| 6 | Versionierung von Änderungen im Learning Agreement |
 
 ---
 
@@ -269,9 +274,7 @@ Die an der Partneruniversität erbrachten Leistungen werden nach Rückkehr des S
 | 4 | Speicherung erbrachter Leistungen |
 | 5 | Digitale Prüfung durch den Prüfungsausschuss |
 | 6 | Speicherung von Anerkennungsentscheidungen pro Leistung |
-| 7 | Prüfung durch das Büro für Internationales Studieren |
-| 8 | Statusverfolgung des Anerkennungsverfahrens |
-| 9 | Automatische Hinweise bei fehlenden Unterlagen |
+| 7 | Statusverfolgung des Anerkennungsverfahrens |
 
 ## 7. Konzeptueller Entwurf
 
