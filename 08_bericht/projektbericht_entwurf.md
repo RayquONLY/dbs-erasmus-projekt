@@ -279,7 +279,7 @@ Für den Konzeptionellen Entwurf wurde ein ER-Diagram in Chen notation erstellt.
 
 Siehe Bild "ER-dia-Erasmus.drawio.png"
 
-## Relationen
+### Relationen
 
 Fakultät 1:n Institut  
 Institut 1:n Studiengang  
@@ -329,7 +329,7 @@ Institut 1:1 Prüfungsausschuss
 Für den Logischen Entwurf des Datenbakmodells wurde das ER-Diagram in ein Relationenmodell überführt.
 
 
-## Grund-Entitäten
+### Grund-Entitäten
 
 Student (<u>matrikelnummer</u>, *studiengang_id*, vorname, nachname, email)
 
@@ -348,7 +348,7 @@ Koordinator (<u>koordinator_id</u>, *institut_id*, email, name)
 Prüfungsausschuss (<u>prüfungsausschuss_id</u>, *institut_id*)
 
 
-## Bewerbung und Platzvergabe
+### Bewerbung und Platzvergabe
 
 Austauschkontingent (<u>austauschkontingent_id</u>, *partneruniversität_erasmus_code*, *institut_id*, platzanzahl, studienphase, akademisches_jahr)
 
@@ -369,7 +369,7 @@ Auswahlentscheidung (<u>auswahlentscheidung_id</u>, *bewerbung_id*, *koordinator
 Bewerbungspräferenz (<u>bewerbungspräferenz_id</u>, *bewerbung_id*, *austauschkontingent_id*, priorität)
 
 
-## Aufenthalt und Planung
+### Aufenthalt und Planung
 
 Auslandsaufenthalt (<u>auslandsaufenthalt_id</u>, *nominierung_id*, semester, status, startdatum, enddatum)
 
@@ -388,7 +388,7 @@ Genehmigung (<u>genehmigungs_id</u>, *LearningAgreementVersion_id*, *koordinator
 Confirmation (<u>confirmation_id</u>, *auslandsaufenthalt_id*, typ, status, ausstellungsdatum, einreichungsdatum)
 
 
-## Rückkehr und Anerkennung
+### Rückkehr und Anerkennung
 
 TranscriptOfRecords (<u>transcriptofrecords_id</u>, *auslandsaufenthalt_id*, status, ausstellungsdatum, einreichungsdatum)
 
@@ -399,7 +399,7 @@ Anerkennungsantrag (<u>anerkennungsantrag_id</u>, *auslandsaufenthalt_id*, *prü
 Anerkennungsentscheidung (<u>anerkennungsentscheidung_id</u>, *anerkennungsantrag_id*, *erbrachteleistungs_id*, *hu_modul_id*, entscheidung, anerkannte_ects, entscheidungsdatum)
 
 
-## Normalform:
+### Normalform:
 
 Das Modell befindet sich in der 3. Normalform.
 1. Normalform ist gegeben, da alle Attribute Atomar sind.
