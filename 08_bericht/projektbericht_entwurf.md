@@ -97,6 +97,8 @@ Ablauf anschaulich und zeitlich strukturiert (Möglichkeiten, Motivation, Partne
 
 ## 4. Annahmen und Abgrenzungen
 
+Finanzierung, Wohnung, Versicherung und ähnliche Themen existieren im realen Erasmus-Prozess, gehören aber nicht zu unserem Kern: Bewerbung, Kursplanung und Anerkennung.
+
 ## 5. Anforderungsanalyse
 
 ## 6. Use Cases
