@@ -281,6 +281,8 @@ Siehe Bild "ER-dia-Erasmus.drawio.png"
 
 ## 8. Logischer Entwurf
 
+Für den Logischen Entwurf des Datenbakmodells wurde das ER-Diagram in ein Relationenmodell überführt.
+
 ## Grund-Entitäten
 
 Student (<u>matrikelnummer</u>, *studiengang_id*, vorname, nachname, email)
