@@ -4,6 +4,10 @@
 
 ## 2. Szenario und Zielsetzung
 
+Ziel unseres DBS-Projektes ist die Konzeption und Entwicklung eines Datenbank-Tools und -Modells zur Verwaltung und Darstellung der Erasmus-Outgoing-Prozesse an der Mathematisch-Naturwissenschaftlichen Fakultät der HU.
+Dabei liegt unser Fokus vor allem auf der Bewerbung, der Kursplanung über das Learning-Agreement sowie der Anerkennung erbrachter Studienleistungen.
+
+
 ## 3. Quellen und fachliche Orientierung
 
 ## Quelle: MNF Erasmus-Seite
