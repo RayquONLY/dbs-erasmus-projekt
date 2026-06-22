@@ -402,7 +402,7 @@ Anerkennungsentscheidung (<u>anerkennungsentscheidung_id</u>, *anerkennungsantra
 ### Normalform:
 
 Das Modell befindet sich in der 3. Normalform.
-1. Normalform ist gegeben, da alle Attribute Atomar sind.
+1. Normalform ist gegeben, da alle Attribute atomar sind.
 2. Normalform ist gegeben, da die 1. Normalform gilt und jedes Nichtschlüsselattribut von jedem Schlüsselkandidaten voll funktional abhängig ist.
 3. Normalform ist gegeben, da die 2. Normalform gilt und kein Nichtschlüsselattribut transitiv von einem Schlüsselkandidaten abhängig ist.
 
