@@ -279,9 +279,55 @@ Für den Konzeptionellen Entwurf wurde ein ER-Diagram in Chen notation erstellt.
 
 Siehe Bild "ER-dia-Erasmus.drawio.png"
 
+## Relationen
+
+Fakultät 1:n Institut  
+Institut 1:n Studiengang  
+Studiengang 1:n Student  
+Land 1:n Partneruniversität  
+Partneruniversität 1:n Austauschkontingent  
+Institut 1:n Austauschkontingent  
+
+Student 1:n Bewerbung  
+Bewerbungsrunde 1:n Bewerbung  
+Bewerbung 1:n Bewerbungspräferenz  
+Austauschkontingent 1:n Bewerbungspräferenz  
+Bewerbung 1:n Bewerbungsdokument  
+Bewerbung n:m Sprachnachweis  
+Bewerbung 1:0..1 Auswahlentscheidung  
+Bewerbung 1:0..1 Nominierung  
+Austauschkontingent 1:n Nominierung  
+Koordinator 1:n Auswahlentscheidung  
+Koordinator 1:n Nominierung  
+
+Nominierung 1:0..1 Auslandsaufenthalt  
+Auslandsaufenthalt 1:0..1 LearningAgreement  
+LearningAgreement 1:n LearningAgreementVersion  
+LearningAgreementVersion 1:n Kurszuordnung  
+Gastkurs 1:n Kurszuordnung  
+HU-Modul 1:n Kurszuordnung  
+Partneruniversität 1:n Gastkurs  
+Studiengang 1:n HU-Modul  
+LearningAgreementVersion 1:n Genehmigung  
+Koordinator 1:n Genehmigung  
+Auslandsaufenthalt 1:n Confirmation  
+
+Auslandsaufenthalt 1:0..1 TranscriptOfRecords  
+TranscriptOfRecords 1:n ErbrachteLeistung  
+Gastkurs 1:n ErbrachteLeistung  
+Auslandsaufenthalt 1:0..1 Anerkennungsantrag  
+Prüfungsausschuss 1:n Anerkennungsantrag  
+Anerkennungsantrag 1:n Anerkennungsentscheidung  
+ErbrachteLeistung 1:0..1 Anerkennungsentscheidung  
+HU-Modul 1:n Anerkennungsentscheidung  
+Institut 1:n Koordinator  
+Institut 1:1 Prüfungsausschuss
+
+
 ## 8. Logischer Entwurf
 
 Für den Logischen Entwurf des Datenbakmodells wurde das ER-Diagram in ein Relationenmodell überführt.
+
 
 ## Grund-Entitäten
 
@@ -301,12 +347,6 @@ Koordinator (<u>koordinator_id</u>, *institut_id*, email, name)
 
 Prüfungsausschuss (<u>prüfungsausschuss_id</u>, *institut_id*)
 
-Fakultät 1:n Institut  
-Institut 1:n Studiengang  
-Studiengang 1:n Student  
-Land 1:n Partneruniversität  
-Partneruniversität 1:n Austauschkontingent  
-Institut 1:n Austauschkontingent  
 
 ## Bewerbung und Platzvergabe
 
@@ -328,17 +368,6 @@ Auswahlentscheidung (<u>auswahlentscheidung_id</u>, *bewerbung_id*, *koordinator
 
 Bewerbungspräferenz (<u>bewerbungspräferenz_id</u>, *bewerbung_id*, *austauschkontingent_id*, priorität)
 
-Student 1:n Bewerbung  
-Bewerbungsrunde 1:n Bewerbung  
-Bewerbung 1:n Bewerbungspräferenz  
-Austauschkontingent 1:n Bewerbungspräferenz  
-Bewerbung 1:n Bewerbungsdokument  
-Bewerbung n:m Sprachnachweis  
-Bewerbung 1:0..1 Auswahlentscheidung  
-Bewerbung 1:0..1 Nominierung  
-Austauschkontingent 1:n Nominierung  
-Koordinator 1:n Auswahlentscheidung  
-Koordinator 1:n Nominierung  
 
 ## Aufenthalt und Planung
 
@@ -358,17 +387,6 @@ Genehmigung (<u>genehmigungs_id</u>, *LearningAgreementVersion_id*, *koordinator
 
 Confirmation (<u>confirmation_id</u>, *auslandsaufenthalt_id*, typ, status, ausstellungsdatum, einreichungsdatum)
 
-Nominierung 1:0..1 Auslandsaufenthalt  
-Auslandsaufenthalt 1:0..1 LearningAgreement  
-LearningAgreement 1:n LearningAgreementVersion  
-LearningAgreementVersion 1:n Kurszuordnung  
-Gastkurs 1:n Kurszuordnung  
-HU-Modul 1:n Kurszuordnung  
-Partneruniversität 1:n Gastkurs  
-Studiengang 1:n HU-Modul  
-LearningAgreementVersion 1:n Genehmigung  
-Koordinator 1:n Genehmigung  
-Auslandsaufenthalt 1:n Confirmation  
 
 ## Rückkehr und Anerkennung
 
@@ -380,16 +398,6 @@ Anerkennungsantrag (<u>anerkennungsantrag_id</u>, *auslandsaufenthalt_id*, *prü
 
 Anerkennungsentscheidung (<u>anerkennungsentscheidung_id</u>, *anerkennungsantrag_id*, *erbrachteleistungs_id*, *hu_modul_id*, entscheidung, anerkannte_ects, entscheidungsdatum)
 
-Auslandsaufenthalt 1:0..1 TranscriptOfRecords  
-TranscriptOfRecords 1:n ErbrachteLeistung  
-Gastkurs 1:n ErbrachteLeistung  
-Auslandsaufenthalt 1:0..1 Anerkennungsantrag  
-Prüfungsausschuss 1:n Anerkennungsantrag  
-Anerkennungsantrag 1:n Anerkennungsentscheidung  
-ErbrachteLeistung 1:0..1 Anerkennungsentscheidung  
-HU-Modul 1:n Anerkennungsentscheidung  
-Institut 1:n Koordinator  
-Institut 1:1 Prüfungsausschuss
 
 ## Normalform:
 
