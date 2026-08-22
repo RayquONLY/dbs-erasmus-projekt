@@ -1,24 +1,32 @@
-import mysql.connector
+from psycopg2 import connect
 
-mydb = mysql.connector.connect(
-  host="localhost",
-  user="yourusername",
-  password="yourpassword"
-)
 
-mycursor = mydb.cursor()
+def execute_sql(command: str) -> None:
+  connector = connect(
+      dbname="erasmus-projekt",
+      user="jonathan",
+      password="1223",
+      host="localhost",
+  )
 
-mycursor.execute("CREATE DATABASE erasmus_db")
+  connector.autocommit = True
+  cursor = connector.cursor()
 
-mycursor.execute("""
-CREATE TABLE student (
-matrikelnummer INTEGER PRIMARY, 
-studiengang_id INTEGER NOT NULL, 
-vorname VARCHAR(255) NOT NULL, 
-nachname VARCHAR(255) NOT NULL, 
-email VARCHAR(255) 
 
-FOREIGN KEY (studiengang_id)
-REFERENCES studiengang(studiengang_id)
-)
-""")
+  cursor.execute(command)
+
+  cursor.close()
+
+ 
+
+def main() -> None:
+  
+  command: str = ""
+  with open("/home/jonathan/Documents/UNI/GitLab/dbs-erasmus-projekt/06_sql/create_db.sql", "r") as f:
+    command = f.read()
+    print(command)
+    execute_sql(command)
+
+
+if __name__ == "__main__":
+  main()
