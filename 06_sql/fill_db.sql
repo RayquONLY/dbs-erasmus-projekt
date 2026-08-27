@@ -6,14 +6,14 @@ VALUES
 ();
 */
 
-INSERT INTO fakultaet (fakultaet_id, name)
+INSERT INTO fakultaet
 VALUES 
 (0, 'Mathematisch-Naturwissenschaftliche Fakultät'),
 (1, 'Philosophische Fakultät'),
 (2, 'Sprach- und literaturwissenschaftliche Fakultät');
 
 
-INSERT INTO institut (institut_id, fakultaet_id, name)
+INSERT INTO institut
 VALUES 
 (0, 0, 'Institut für Chemie'),
 (1, 0, 'Institut für Informatik'),
@@ -23,7 +23,7 @@ VALUES
 (5, 2, 'Institut für Romanistik');
 
 
-INSERT INTO table_name (studiengang_id, institut_id, name, abschluss)
+INSERT INTO studiengang
 VALUES 
 (0,0,'Monobachelor Chemie','Bachelor'),
 (1,1,'Monomaster Informatik','Master'),
@@ -33,7 +33,7 @@ VALUES
 (5,5,'Bachelor Französisch','Bachelor');
 
 
-INSERT INTO table_name ()
+INSERT INTO student
 VALUES 
 (),
 (),
