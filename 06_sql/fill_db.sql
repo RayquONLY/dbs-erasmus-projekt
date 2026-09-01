@@ -145,7 +145,6 @@ VALUES
 (0, 0, 0, '2026-06-24', 'angenommen', 'Prüfungsausschuss Chemie'),
 (1, 1, 1, '2026-06-30', 'offen', 'Koordination Informatik'),
 (2, 2, 3, '2026-07-01', 'warteliste', 'Prüfungsausschuss Geschichte'),
-(3, 4, 4, '2026-06-22', 'abgelehnt', 'Prüfungsausschuss Deutsche Literatur');
 
 
 INSERT INTO bewerbungspraeferenz
