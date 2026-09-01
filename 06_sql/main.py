@@ -1,5 +1,4 @@
-from create_db import recreate_db, create_tables
-from fill_db import fill_tables
+from create_db import recreate_db, create_tables, fill_tables
 
 def main() -> None:
   recreate_db("erasmus_projekt")
