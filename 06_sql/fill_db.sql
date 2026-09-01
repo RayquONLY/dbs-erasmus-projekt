@@ -91,9 +91,9 @@ VALUES
 
 INSERT INTO bewerbungsrunde
 VALUES 
-(0, 'SoSe 2026', '01-11-2025', '15-01-2026', 'geschlossen'),
-(1, 'WiSe 2026', '01-04-2026', '15-06-2026', 'geschlossen'),
-(2, 'SoSe 2027', '01-11-2026', '15-01-2027', 'offen');
+(0, 'SoSe 2026', '2025-11-01', '2026-01-15', 'geschlossen'),
+(1, 'WiSe 2026', '2026-04-01', '2026-06-15', 'geschlossen'),
+(2, 'SoSe 2027', '2026-11-01', '2027-01-15', 'offen');
 
 
 
