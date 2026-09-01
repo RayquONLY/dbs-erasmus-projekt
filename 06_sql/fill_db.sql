@@ -136,7 +136,6 @@ VALUES
 INSERT INTO nominierung
 VALUES 
 (0, 0, 0, 0, 'nominiert', '2026-06-25'),
-(1, 1, 1, 1, 'vorbereitet', '2026-07-01'),
 (2, 3, 2, 3, 'vorbereitet', '2026-07-02');
 
 
