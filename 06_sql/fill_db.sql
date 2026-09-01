@@ -78,7 +78,7 @@ VALUES
 (4, 4),
 (5, 5);
 
-INSERT INTO CREATE TABLE austauschkontingent
+INSERT INTO austauschkontingent
 VALUES 
 (0, 'F PARIS001', 0, 2, 'Bachelor', '2026/27'),
 (1, 'NL AMSTER01', 1, 3, 'Master', '2026/27'),
