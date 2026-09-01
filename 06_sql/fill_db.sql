@@ -119,10 +119,10 @@ VALUES
 
 INSERT INTO sprachnachweis
 VALUES 
-(0, 0, 'Französisch', 'B2', 'DELF', 'geprueft'),
-(1, 0, 'Englisch', 'C1', 'Cambridge Certificate', 'geprueft'),
-(2, 1, 'Englisch', 'C1', 'TOEFL', 'geprueft'),
-(3, 2, 'Englisch', 'B2', 'IELTS', 'eingereicht');
+(0, 618492, 'Französisch', 'B2', 'DELF', 'geprueft'),
+(1, 618492, 'Englisch', 'C1', 'Cambridge Certificate', 'geprueft'),
+(2, 629048, 'Englisch', 'C1', 'TOEFL', 'geprueft'),
+(3, 658392, 'Englisch', 'B2', 'IELTS', 'eingereicht');
 
 
 INSERT INTO bewerbung_sprachnachweis
@@ -143,7 +143,7 @@ VALUES
 INSERT INTO auswahlentscheidung
 VALUES 
 (0, 0, 0, '2026-06-24', 'angenommen', 'Prüfungsausschuss Chemie'),
-(1, 1, 1, '2026-06-30', 'offen', 'Koordination Informatik'),
+(1, 1, 1, '2026-06-30', 'abgelehnt', 'Koordination Informatik'),
 (2, 2, 3, '2026-07-01', 'warteliste', 'Prüfungsausschuss Geschichte');
 
 

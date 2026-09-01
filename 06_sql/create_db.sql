@@ -169,7 +169,7 @@ ON DELETE CASCADE
 
 CREATE TABLE sprachnachweis (
 sprachnachweis_id INTEGER PRIMARY KEY,
-bewerbung_id INTEGER NOT NULL,
+matrikelnummer INTEGER NOT NULL,
 sprache VARCHAR(255),
 niveau VARCHAR(255) CHECK (niveau IN (
     'A1',
@@ -188,10 +188,11 @@ status VARCHAR(255) CHECK (status IN (
 )),
 
 
-FOREIGN KEY (bewerbung_id)
-REFERENCES bewerbung(bewerbung_id)
+FOREIGN KEY (matrikelnummer)
+REFERENCES student(matrikelnummer)
 ON DELETE CASCADE
 );
+
 
 
 CREATE TABLE bewerbung_sprachnachweis (
@@ -240,7 +241,11 @@ auswahlentscheidung_id INTEGER PRIMARY KEY,
 bewerbung_id INTEGER NOT NULL UNIQUE,
 koordinator_id INTEGER NOT NULL,
 entscheidungsdatum DATE,
-status VARCHAR(255),
+status VARCHAR(255) CHECK (status IN (
+    'angenommen',
+    'abgelehnt',
+    'warteliste'
+)),
  entscheidungsgeber VARCHAR(255) ,
 
 
