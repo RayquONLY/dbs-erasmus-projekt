@@ -114,7 +114,7 @@ VALUES
 (5, 1, 'motivationsschreiben',  'motivation_niko.pdf',          '2026-05-11',   'eingereicht'),
 (6, 2, 'leistungsspiegel',      'leistungsspiegel_max.pdf',     '2026-05-08',   'geprueft'),
 (7, 2, 'lebenslauf',            'lebenslauf_max.pdf',           '2026-05-08',   'geprueft'),
-(8, 2, 'motivationsschreiben',  'motivation_max.pdf',           '2026-05-09',   'geprueft'),
+(8, 2, 'motivationsschreiben',  'motivation_max.pdf',           '2026-05-09',   'geprueft');
 
 
 INSERT INTO sprachnachweis
