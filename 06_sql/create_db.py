@@ -6,9 +6,10 @@ load_dotenv()
 
 def execute_sql(command: str) -> None:
     env_password = getenv("DB_PASSWORD")
+    db_name = getenv("DB_NAME")
   
     connector = connect(
-        dbname="erasmus_projekt",
+        dbname=db_name,
         user="jonathan",
         password=env_password,
         host="localhost",
@@ -23,11 +24,12 @@ def execute_sql(command: str) -> None:
     cursor.close()
 
 
-def recreate_db(name:str) -> None:
+def recreate_db() -> None:
   env_password = getenv("DB_PASSWORD")
+  db_name = getenv("DB_NAME")
 
   connector = connect(
-    dbname="postgres",
+    dbname=db_name,
     user="jonathan",
     password=env_password,
     host="localhost",
@@ -36,12 +38,9 @@ def recreate_db(name:str) -> None:
   connector.autocommit = True
   cursor = connector.cursor()
 
-  #try:
-  cursor.execute(f"DROP DATABASE {name};")
-  #except:
-    #print(f"failed to drop database {name}")
+  cursor.execute(f"DROP DATABASE {db_name};")
 
-  cursor.execute(f"CREATE DATABASE {name};")
+  cursor.execute(f"CREATE DATABASE {db_name};")
 
   cursor.close()
 

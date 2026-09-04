@@ -4,7 +4,7 @@ from psycopg2.errors import ObjectInUse
 
 def create_and_fill() -> None:
   try:
-    recreate_db("erasmus_projekt")
+    recreate_db()
   except ObjectInUse as e:
     print(e)
     print("Disconnect from the Database and try again.")
