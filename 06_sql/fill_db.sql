@@ -107,14 +107,11 @@ VALUES
 
 
 
-
-
 INSERT INTO bewerbung
 VALUES
 (0, 1, 618492, 'angenommen'),
 (1, 1, 629048, 'abgelehnt'),
 (2, 2, 658392, 'eingereicht');
-
 
 
 
@@ -129,7 +126,6 @@ VALUES
 (6, 2, 'leistungsspiegel',      'leistungsspiegel_max.pdf',     '2026-05-08',   'geprueft'),
 (7, 2, 'lebenslauf',            'lebenslauf_max.pdf',           '2026-05-08',   'geprueft'),
 (8, 2, 'motivationsschreiben',  'motivation_max.pdf',           '2026-05-09',   'geprueft');
-
 
 
 
@@ -149,7 +145,6 @@ VALUES
 (0, 1),
 (1, 2),
 (2, 3);
-
 
 
 
@@ -178,15 +173,6 @@ VALUES
 (3, 1, 6, 2),
 (4, 2, 3, 1),
 (5, 2, 1, 2);
-
-
-
-
-
-
-
-
-
 
 
 

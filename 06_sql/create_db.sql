@@ -465,6 +465,48 @@ FOREIGN KEY (gastkurs_id)  REFERENCES gastkurs(gastkurs_id)
 );
 
 
+CREATE TABLE anerkennungsantrag (
+anerkennungsantrag_id INTEGER PRIMARY KEY,
+auslandsaufenthalt_id INTEGER NOT NULL UNIQUE,
+pruefungsausschuss_id INTEGER NOT NULL,
+status VARCHAR(255) CHECK (status IN (
+    'eingereicht',
+    'unvollstaendig',
+    'in_pruefung',
+    'abgeschlossen',
+    'abgelehnt'
+)),
+einreichungsdatum DATE,
+
+
+FOREIGN KEY (auslandsaufenthalt_id) REFERENCES auslandsaufenthalt(auslandsaufenthalt_id)
+ON DELETE CASCADE,
+FOREIGN KEY (pruefungsausschuss_id) REFERENCES pruefungsausschuss(pruefungsausschuss_id)
+);
+
+
+CREATE TABLE anerkennungsentscheidung (
+anerkennungsentscheidung_id INTEGER PRIMARY KEY,
+anerkennungsantrag_id INTEGER NOT NULL,
+erbrachteleistungs_id INTEGER NOT NULL UNIQUE,
+hu_modul_id INTEGER NOT NULL,
+entscheidung VARCHAR(255) CHECK (entscheidung IN (
+    'anerkannt',
+    'teilweise_anerkannt',
+    'abgelehnt'
+)),
+anerkannte_ects INTEGER CHECK (anerkannte_ects >= 0),
+entscheidungsdatum DATE,
+
+
+FOREIGN KEY (anerkennungsantrag_id) REFERENCES anerkennungsantrag(anerkennungsantrag_id)
+ON DELETE CASCADE,
+FOREIGN KEY (erbrachteleistungs_id) REFERENCES erbrachte_leistung(erbrachteleistungs_id),
+FOREIGN KEY (hu_modul_id) REFERENCES hu_modul(hu_modul_id)
+);
+
+
+
 CREATE VIEW v_bewerbungsuebersicht AS
 SELECT
     b.bewerbung_id,
