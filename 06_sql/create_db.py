@@ -5,13 +5,14 @@ from dotenv import load_dotenv
 load_dotenv()
 
 def execute_sql(command: str) -> None:
-    env_password = getenv("DB_PASSWORD")
+    db_user = getenv("DB_USER")
+    db_password = getenv("DB_PASSWORD")
     db_name = getenv("DB_NAME")
   
     connector = connect(
         dbname=db_name,
-        user="jonathan",
-        password=env_password,
+        user=db_user,
+        password=db_password,
         host="localhost",
     )
 
@@ -25,13 +26,14 @@ def execute_sql(command: str) -> None:
 
 
 def recreate_db() -> None:
-  env_password = getenv("DB_PASSWORD")
+  db_user = getenv("DB_USER")
+  db_password = getenv("DB_PASSWORD")
   db_name = getenv("DB_NAME")
 
   connector = connect(
     dbname=db_name,
-    user="jonathan",
-    password=env_password,
+    user=db_user,
+    password=db_password,
     host="localhost",
   )
 
