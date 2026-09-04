@@ -463,3 +463,49 @@ ON DELETE CASCADE,
 
 FOREIGN KEY (gastkurs_id)  REFERENCES gastkurs(gastkurs_id)
 );
+
+
+CREATE VIEW v_bewerbungsuebersicht AS
+SELECT
+    b.bewerbung_id,
+    br.semester AS bewerbungsrunde,
+    s.matrikelnummer,
+    s.vorname,
+    s.nachname,
+    sg.name AS studiengang,
+    b.status AS bewerbungsstatus,
+    bp.prioritaet,
+    pu.name AS partneruniversitaet,
+    pu.stadt,
+    l.name AS land,
+    ak.studienphase,
+    ak.akademisches_jahr,
+    ae.status AS auswahlstatus,
+    n.status AS nominierungsstatus
+FROM bewerbung b
+JOIN student s
+    ON b.matrikelnummer = s.matrikelnummer
+JOIN studiengang sg
+    ON s.studiengang_id = sg.studiengang_id
+JOIN bewerbungsrunde br
+    ON b.bewerbungsrunde_id = br.bewerbungsrunde_id
+LEFT JOIN bewerbungspraeferenz bp
+    ON b.bewerbung_id = bp.bewerbung_id
+LEFT JOIN austauschkontingent ak
+    ON bp.austauschkontingent_id = ak.austauschkontingent_id
+LEFT JOIN partneruniversitaet pu
+    ON ak.partneruniversitaet_erasmus_code = pu.partneruniversitaet_erasmus_code
+LEFT JOIN land l
+    ON pu.land_id = l.land_id
+LEFT JOIN auswahlentscheidung ae
+    ON b.bewerbung_id = ae.bewerbung_id
+LEFT JOIN nominierung n
+    ON b.bewerbung_id = n.bewerbung_id;
+
+
+CREATE INDEX idx_bewerbung_matrikelnummer
+ON bewerbung(matrikelnummer);
+
+
+CREATE INDEX idx_auslandsaufenthalt_status
+ON auslandsaufenthalt(status);
