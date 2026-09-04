@@ -31,7 +31,7 @@ def recreate_db() -> None:
   db_name = getenv("DB_NAME")
 
   connector = connect(
-    dbname=db_name,
+    dbname="postgres",
     user=db_user,
     password=db_password,
     host="localhost",
