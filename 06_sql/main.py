@@ -1,6 +1,8 @@
 from create_db import recreate_db, create_tables, fill_tables
 from time import sleep
 from psycopg2.errors import ObjectInUse
+import subprocess
+import sys
 
 def create_and_fill() -> None:
   try:
@@ -25,7 +27,10 @@ def main() -> None:
 
     match option:
       case "1":
-        raise(NotImplementedError)
+        try:
+          subprocess.run([sys.executable,"-m","streamlit","run","./06_sql/dashboard.py"])
+        except KeyboardInterrupt as e:
+          print("Dashboard closed")
       case "2":
         print("This will undo all changes and revert the Database to the initial state. Are you sure?")
         option = input("(y|n) ")

@@ -1,10 +1,11 @@
 from psycopg2 import connect
 from os import getenv
 from dotenv import load_dotenv
+from psycopg2.errors import ProgrammingError
 
 load_dotenv()
 
-def execute_sql(command: str) -> None:
+def execute_sql(command: str) -> list:
     db_user = getenv("DB_USER")
     db_password = getenv("DB_PASSWORD")
     db_name = getenv("DB_NAME")
@@ -21,8 +22,17 @@ def execute_sql(command: str) -> None:
 
 
     cursor.execute(command)
+    try:
+      result = cursor.fetchall()
+    except ProgrammingError as e:
+      cursor.close()
+      connector.close()
+      return []
 
     cursor.close()
+    connector.close()
+    return result
+
 
 
 def recreate_db() -> None:
