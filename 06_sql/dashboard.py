@@ -1,30 +1,38 @@
 import streamlit as st
-from create_db import execute_sql
-from dahsboard_utils import *
+from sql_utils import execute_sql
+from sql_utils import *
 
-#View übersicht
-#Leistungs übersicht
-
-#Koordinator Übersicht
+#   TODO:
+# - Bewerbungs übersicht (check)
+# - Leistungs übersicht
+# - Koordinator Übersicht
 
 st.title("Dashboard")
 
-#Get all student entries
-result1:list[tuple[str]] = execute_sql("SELECT * FROM student;")
+#get all student entries
+result_all_students:list[tuple[str]] = execute_sql("SELECT * FROM student;")
 
 students: list[str] = []
 
-for entry in result1:
+#make student selection for dropdown
+for entry in result_all_students:
     students.append(f"{entry[Student.matrikelnummer]} {entry[Student.vorname]} {entry[Student.nachname]}")
 
+#select student
 student_selection = st.selectbox("Student:", students)
 entry_nr:int = students.index(student_selection)
-selected_student = result1[entry_nr]
+selected_student = result_all_students[entry_nr]
 
-result2:list[tuple] = execute_sql(f"SELECT * FROM v_bewerbungsuebersicht WHERE matrikelnummer = {selected_student[Student.matrikelnummer]};")
+#get bewerbungsübersicht view for selected student
+result_view_1:list[tuple] = execute_sql(f"SELECT * FROM v_bewerbungsuebersicht WHERE matrikelnummer = {selected_student[Student.matrikelnummer]};")
 
-result2.insert(0, dashboard_table_header)
+#insert table header into table
+result_view_1.insert(0, dashboard_table_header)
 
+
+#wirte out data
 st.header("Bewerbungsübersicht")
 
-st.table(result2)
+st.table(result_view_1)
+
+
