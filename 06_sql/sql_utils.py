@@ -34,7 +34,7 @@ def execute_sql(command: str) -> list:
     connector.close()
     return result
 
-dashboard_table_header = (
+view_1_table_header = (
     "bewerbung_id",
     "bewerbungsrunde",
     "matrikelnummer",
@@ -50,6 +50,11 @@ dashboard_table_header = (
     "akademisches_jahr",
     "auswahlstatus",
     "nominierungsstatus"
+)
+
+view_2_table_header = (
+
+   
 )
 
 class Student(IntEnum):

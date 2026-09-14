@@ -27,12 +27,23 @@ selected_student = result_all_students[entry_nr]
 result_view_1:list[tuple] = execute_sql(f"SELECT * FROM v_bewerbungsuebersicht WHERE matrikelnummer = {selected_student[Student.matrikelnummer]};")
 
 #insert table header into table
-result_view_1.insert(0, dashboard_table_header)
+result_view_1.insert(0, view_1_table_header)
+
+
+#get leistungsuebersicht
+result_view_2:list[tuple] = execute_sql(f"SELECT * FROM v_leistungsuebersicht;")
+result_view_2.insert(0, view_2_table_header)
 
 
 #wirte out data
 st.header("Bewerbungsübersicht")
 
 st.table(result_view_1)
+
+
+st.header("Leistungsübersicht")
+
+st.table(result_view_2)
+
 
 

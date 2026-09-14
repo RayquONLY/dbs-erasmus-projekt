@@ -1,13 +1,13 @@
 from create_db import recreate_db, create_tables, fill_tables
 from time import sleep
-from psycopg2.errors import ObjectInUse
+import psycopg2.errors
 import subprocess
 import sys
 
 def create_and_fill() -> None:
   try:
     recreate_db()
-  except ObjectInUse as e:
+  except psycopg2.errors.ObjectInUse as e:
     print(e)
     print("Disconnect from the Database and try again.")
     return
@@ -36,7 +36,11 @@ def main() -> None:
         option = input("(y|n) ")
         if option == "y":
           print("Recreating Database...")
-          create_and_fill()
+          try:
+            create_and_fill()
+          except psycopg2.errors.SyntaxError as e:
+            print(e)
+            print("Found SQL Syntax error. Aborting.")
           sleep(1)
       case "3":
         exit = True
