@@ -7,7 +7,6 @@ from sql_utils import *
 # - Leistungs übersicht
 # - Anerkennungs übersicht
 
-st.title("Dashboard")
 
 #get all student entries
 result_all_students:list[tuple[str]] = execute_sql("SELECT * FROM student;")
@@ -29,6 +28,8 @@ result_view_1:list[tuple] = execute_sql(f"SELECT * FROM v_bewerbungsuebersicht W
 #insert table header into table
 result_view_1.insert(0, view_1_table_header)
 
+
+st.title("Dashboard")
 
 #wirte out data
 st.header("Bewerbungsübersicht")

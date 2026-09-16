@@ -552,7 +552,9 @@ SELECT
     g.ects AS Gastkurs_ECTS,
     h.name AS HU_Kurs,
     k.status AS Status,
-    bew.matrikelnummer AS Matrikelnummer
+    bew.matrikelnummer AS Matrikelnummer,
+    el.note AS Note,
+    el.bestanden AS Bestanden
 FROM kurszuordnung AS k
 JOIN gastkurs AS g
     ON k.gastkurs_id = g.gastkurs_id
@@ -567,7 +569,9 @@ JOIN auslandsaufenthalt AS au
 JOIN nominierung AS nom
     ON au.nominierung_id = nom.nominierung_id
 JOIN bewerbung AS bew
-    ON nom.bewerbung_id = bew.bewerbung_id;
+    ON nom.bewerbung_id = bew.bewerbung_id
+JOIN erbrachte_leistung AS el
+    ON el.gastkurs_id = g.gastkurs_id;
 
 CREATE INDEX idx_bewerbung_matrikelnummer
 ON bewerbung(matrikelnummer);

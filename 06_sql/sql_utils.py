@@ -62,7 +62,9 @@ view_2_table_header = (
    "ECTS",
    "HU_Kurs",
    "Status",
-   "Matrikelnummer"
+   "Matrikelnummer",
+   "Note",
+   "Bestanden"
 )
 
 class Student(IntEnum):
