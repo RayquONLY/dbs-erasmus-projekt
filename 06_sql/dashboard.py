@@ -37,6 +37,8 @@ st.table(result_view_1)
 
 
 
+st.header("Leistungsübersicht")
+
 #get leistungsuebersicht
 result_la_versions_raw:list[tuple[str]] = execute_sql(f"SELECT DISTINCT LA_version FROM v_leistungsuebersicht WHERE Matrikelnummer = {selected_student[Student.matrikelnummer]}")
 result_la_versions:list[str] = [x[0] for x in result_la_versions_raw]
@@ -50,7 +52,6 @@ if result_la_versions != []:
 
 
 #write out data
-st.header("Leistungsübersicht")
 
 st.table(result_view_2)
 
