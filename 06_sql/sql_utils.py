@@ -67,6 +67,19 @@ view_2_table_header = (
    "Bestanden"
 )
 
+view_3_table_header = (
+    "HU_Modul_ECTS",
+    "HU-Modul_Name",
+    "hu_modul_id",
+    "anerkannte_ects",
+    "entscheidung",
+    "gastkurs_id",
+    "Gastkurs_ECTS",
+    "Note",
+    "bestanden",
+    "matrikelnummer",
+)
+
 class Student(IntEnum):
     matrikelnummer = 0
     studiengang_id = 1

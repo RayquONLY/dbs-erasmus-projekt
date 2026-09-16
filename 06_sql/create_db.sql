@@ -573,6 +573,36 @@ JOIN bewerbung AS bew
 JOIN erbrachte_leistung AS el
     ON el.gastkurs_id = g.gastkurs_id;
 
+
+CREATE VIEW v_anerkennungsuebersicht AS 
+select
+    hm.ects AS HU_Modul_ECTS,
+    hm."name",
+    a.hu_modul_id,
+    a.anerkannte_ects,
+    a.entscheidung,
+    el.gastkurs_id,
+    el.ects AS Gastkurs_ECTS,
+    el.note,
+    el.bestanden,
+    bew.matrikelnummer
+from
+    erbrachte_leistung as el
+join anerkennungsentscheidung as a 
+    on el.erbrachteleistungs_id = a.erbrachteleistungs_id
+join hu_modul as hm 
+    on a.hu_modul_id = hm.hu_modul_id
+join transcript_of_records as tr
+    on el.transcriptofrecords_id = tr.transcriptofrecords_id
+join auslandsaufenthalt as aus
+    on tr.auslandsaufenthalt_id = aus.auslandsaufenthalt_id
+join nominierung as nom
+    on aus.nominierung_id = nom.nominierung_id
+join bewerbung as bew
+    on nom.bewerbung_id = bew.bewerbung_id;
+
+
+
 CREATE INDEX idx_bewerbung_matrikelnummer
 ON bewerbung(matrikelnummer);
 

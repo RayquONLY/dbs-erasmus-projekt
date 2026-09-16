@@ -7,6 +7,8 @@ from sql_utils import *
 # - Leistungs übersicht
 # - Anerkennungs übersicht
 
+# Anerkennungs antrag Status, Modul und gastkurs, punkte, Note, bestanden
+
 
 #get all student entries
 result_all_students:list[tuple[str]] = execute_sql("SELECT * FROM student;")
@@ -56,5 +58,14 @@ if result_la_versions != []:
 
 st.table(result_view_2)
 
+#get anerkennungsübersicht
+result_view_3:list[tuple] = execute_sql(f"SELECT * FROM v_anerkennungsuebersicht WHERE Matrikelnummer = {selected_student[Student.matrikelnummer]}")
 
+if result_view_3 != []:
+    result_view_3.insert(0, view_3_table_header)
 
+#write out data
+
+st.header("Anerkennungsübersicht")
+
+st.table(result_view_3)
