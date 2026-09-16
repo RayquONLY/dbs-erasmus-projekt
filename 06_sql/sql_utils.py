@@ -32,6 +32,10 @@ def execute_sql(command: str) -> list:
 
     cursor.close()
     connector.close()
+
+    if result == None:
+       return []
+
     return result
 
 view_1_table_header = (
@@ -53,7 +57,6 @@ view_1_table_header = (
 )
 
 view_2_table_header = (
-
    
 )
 

@@ -5,7 +5,7 @@ from sql_utils import *
 #   TODO:
 # - Bewerbungs übersicht (check)
 # - Leistungs übersicht
-# - Koordinator Übersicht
+# - Anerkennungs übersicht
 
 st.title("Dashboard")
 
@@ -30,17 +30,25 @@ result_view_1:list[tuple] = execute_sql(f"SELECT * FROM v_bewerbungsuebersicht W
 result_view_1.insert(0, view_1_table_header)
 
 
-#get leistungsuebersicht
-result_view_2:list[tuple] = execute_sql(f"SELECT * FROM v_leistungsuebersicht;")
-result_view_2.insert(0, view_2_table_header)
-
-
 #wirte out data
 st.header("Bewerbungsübersicht")
 
 st.table(result_view_1)
 
 
+
+#get leistungsuebersicht
+result_la_versions:list[tuple[str]] = execute_sql(f"SELECT LA_version FROM v_leistungsuebersicht WHERE Matrikelnummer = {selected_student[Student.matrikelnummer]}")
+
+
+la_version_selection = st.selectbox("LA_Version: ", result_la_versions)
+
+
+result_view_2:list[tuple] = execute_sql(f"SELECT * FROM v_leistungsuebersicht WHERE Matrikelnummer = {selected_student[Student.matrikelnummer]} AND LA_version = {la_version_selection[0]};")
+result_view_2.insert(0, view_2_table_header)
+
+
+#write out data
 st.header("Leistungsübersicht")
 
 st.table(result_view_2)

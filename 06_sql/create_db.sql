@@ -545,6 +545,30 @@ LEFT JOIN nominierung n
     ON b.bewerbung_id = n.bewerbung_id;
 
 
+CREATE VIEW v_leistungsuebersicht AS
+SELECT
+    k.learning_agreement_version_id AS LA_version,
+    g.name AS Gastkurs_name,
+    g.ects AS Gastkurs_ECTS,
+    h.name AS HU_Kurs,
+    k.status AS Status,
+    bew.matrikelnummer AS Matrikelnummer
+FROM kurszuordnung AS k
+JOIN gastkurs AS g
+    ON k.gastkurs_id = g.gastkurs_id
+JOIN hu_modul AS h
+    ON k.hu_modul_id = h.hu_modul_id
+JOIN learning_agreement_version AS lav
+    ON k.learning_agreement_version_id = lav.learning_agreement_version_id
+JOIN learning_agreement AS la
+    ON lav.learning_agreement_id = la.learning_agreement_id
+JOIN auslandsaufenthalt AS au
+    ON la.auslandsaufenthalt_id = au.auslandsaufenthalt_id
+JOIN nominierung AS nom
+    ON au.nominierung_id = nom.nominierung_id
+JOIN bewerbung AS bew
+    ON nom.bewerbung_id = bew.bewerbung_id;
+
 CREATE INDEX idx_bewerbung_matrikelnummer
 ON bewerbung(matrikelnummer);
 
