@@ -10,12 +10,13 @@ def execute_sql(command: str) -> list:
     db_user = getenv("DB_USER")
     db_password = getenv("DB_PASSWORD")
     db_name = getenv("DB_NAME")
+    db_host = getenv("DB_HOST")
   
     connector = connect(
         dbname=db_name,
         user=db_user,
         password=db_password,
-        host="localhost",
+        host=db_host,
     )
 
     connector.autocommit = True
