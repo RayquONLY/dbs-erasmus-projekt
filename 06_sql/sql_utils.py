@@ -57,7 +57,12 @@ view_1_table_header = (
 )
 
 view_2_table_header = (
-   
+   "LA_version",
+   "Gastkurs_name",
+   "ECTS",
+   "HU_Kurs",
+   "Status",
+   "Matrikelnummer"
 )
 
 class Student(IntEnum):
