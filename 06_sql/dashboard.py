@@ -38,13 +38,13 @@ st.table(result_view_1)
 
 
 #get leistungsuebersicht
-result_la_versions:list[tuple[str]] = execute_sql(f"SELECT LA_version FROM v_leistungsuebersicht WHERE Matrikelnummer = {selected_student[Student.matrikelnummer]}")
-
+result_la_versions_raw:list[tuple[str]] = execute_sql(f"SELECT DISTINCT LA_version FROM v_leistungsuebersicht WHERE Matrikelnummer = {selected_student[Student.matrikelnummer]}")
+result_la_versions:list[str] = [x[0] for x in result_la_versions_raw]
 
 la_version_selection = st.selectbox("LA_Version: ", result_la_versions)
 
 
-result_view_2:list[tuple] = execute_sql(f"SELECT * FROM v_leistungsuebersicht WHERE Matrikelnummer = {selected_student[Student.matrikelnummer]} AND LA_version = {la_version_selection[0]};")
+result_view_2:list[tuple] = execute_sql(f"SELECT * FROM v_leistungsuebersicht WHERE Matrikelnummer = {selected_student[Student.matrikelnummer]} AND LA_version = {la_version_selection};")
 result_view_2.insert(0, view_2_table_header)
 
 
