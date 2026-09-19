@@ -1,13 +1,10 @@
 import streamlit as st
-from sql_utils import execute_sql
 from sql_utils import *
 
 #   TODO:
 # - Bewerbungs übersicht (check)
-# - Leistungs übersicht
-# - Anerkennungs übersicht
-
-# Anerkennungs antrag Status, Modul und gastkurs, punkte, Note, bestanden
+# - Leistungs übersicht (check)
+# - Anerkennungs übersicht (check)
 
 
 #get all student entries
@@ -44,7 +41,10 @@ st.header("Leistungsübersicht")
 
 #get leistungsuebersicht
 result_la_versions_raw:list[tuple[str]] = execute_sql(f"SELECT DISTINCT LA_version FROM v_leistungsuebersicht WHERE Matrikelnummer = {selected_student[Student.matrikelnummer]}")
+
+#format results
 result_la_versions:list[str] = [x[0] for x in result_la_versions_raw]
+
 result_view_2:list[tuple] = []
 
 if result_la_versions != []:
@@ -55,7 +55,6 @@ if result_la_versions != []:
 
 
 #write out data
-
 st.table(result_view_2)
 
 #get anerkennungsübersicht
@@ -65,7 +64,6 @@ if result_view_3 != []:
     result_view_3.insert(0, view_3_table_header)
 
 #write out data
-
 st.header("Anerkennungsübersicht")
 
 st.table(result_view_3)

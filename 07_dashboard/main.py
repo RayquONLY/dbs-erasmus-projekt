@@ -28,7 +28,7 @@ def main() -> None:
     match option:
       case "1":
         try:
-          subprocess.run([sys.executable,"-m","streamlit","run","./06_sql/dashboard.py"])
+          subprocess.run([sys.executable,"-m","streamlit","run","./07_dashboard/dashboard.py"])
         except KeyboardInterrupt as e:
           print("Dashboard closed")
       case "2":
