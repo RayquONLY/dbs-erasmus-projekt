@@ -1,7 +1,6 @@
 -- Query 1: Gesamte Bewerbungsübersicht
 -- Welche Studenten haben sich in welcher Bewerbungsrunde beworben, mit welchem Status, welcher Wunschuniversität,
 -- welcher Priorität, welcher Auswahlentscheidung und welchem Nominierungsstatus?
-create view query_1 as
 select
     *
 from
@@ -12,7 +11,6 @@ from
 
 -- Query 2: Angenommene Bewerbungen
 -- Welche Bewerbungen wurden angenommen und für welche Partneruniversitäten waren sie vorgesehen?
-create view query_2 as
 select
     vb.bewerbungsstatus,
     vb.bewerbung_id,
@@ -33,7 +31,6 @@ where
 
 -- Query 3: Bewerbungen nach Status zählen
 -- Wie viele Bewerbungen gibt es pro Status?
-create view query_3 as
 select
     b.status,
     COUNT(b.bewerbung_id)
@@ -47,7 +44,6 @@ group by
 
 -- Query 4: Nachfrage pro Partneruniversität
 -- Wie viele Bewerbungspräferenzen gibt es pro Partneruniversität?
-create view query_4 as
 select
     COUNT(*) AS nachfrage,
     vb.partneruniversitaet
@@ -61,7 +57,6 @@ group by
 
 -- Query 5: Sprachnachweise pro Bewerbung
 -- Welche Bewerbung verwendet welche Sprachnachweise?
-create view query_5 as
 select
     b.bewerbung_id,
     b.matrikelnummer,
@@ -87,7 +82,6 @@ where
 
 -- Query 6: Auslandsaufenthalt mit Nominierung und Partneruniversität
 -- Welcher nominierte Student hat welchen Auslandsaufenthalt an welcher Partneruniversität?
-create view query_6 as
 SELECT
     p.name AS partneruniversitaet,
     p.partneruniversitaet_erasmus_code,
@@ -118,7 +112,6 @@ WHERE n.status = 'nominiert';
 
 -- Query 7: Learning Agreement mit Versionen
 -- Welche Versionen gibt es zu einem Learning Agreement und warum wurden sie erstellt?
-create view query_7 as
 select
     lav.versionsnummer,
     la.learning_agreement_id,
@@ -141,7 +134,6 @@ inner join public.auslandsaufenthalt a on
 
 -- Query 8: Kurszuordnungen im Learning Agreement
 -- Welche Gastkurse wurden welchen HU-Modulen zugeordnet und welchen Status haben diese Zuordnungen?
-create view query_8 as
 select
     g."name" AS gastkurs,
     hm."name" AS hu_modul,
@@ -167,7 +159,6 @@ inner join public.hu_modul hm on
 
 -- Query 9: Summe anerkannter ECTS pro Aufenthalt
 -- Wie viele ECTS wurden für einen Auslandsaufenthalt insgesamt anerkannt?
-create view query_9 as
 select
     a.auslandsaufenthalt_id,
     COUNT(a2.anerkannte_ects) AS anerkannte_ects
@@ -185,7 +176,6 @@ group by
 
 -- Query 10: Teilweise oder nicht anerkannte Leistungen
 -- Welche erbrachten Leistungen wurden nur teilweise anerkannt oder abgelehnt?
-create view query_10 as
 select
     hm.ects,
     hm."name",
@@ -203,3 +193,4 @@ inner join public.anerkennungsentscheidung a on
 inner join public.hu_modul hm on
     a.hu_modul_id = hm.hu_modul_id
 WHERE a.entscheidung IN ('teilweise_anerkannt', 'abgelehnt');
+
