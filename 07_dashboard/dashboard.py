@@ -1,5 +1,4 @@
 import streamlit as st
-from sql_utils import execute_sql
 from sql_utils import *
 
 st.markdown("""
@@ -23,10 +22,8 @@ st.markdown("""
 
 #   TODO:
 # - Bewerbungs übersicht (check)
-# - Leistungs übersicht
-# - Anerkennungs übersicht
-
-# Anerkennungs antrag Status, Modul und gastkurs, punkte, Note, bestanden
+# - Leistungs übersicht (check)
+# - Anerkennungs übersicht (check)
 
 #get all student entries
 result_all_students:list[tuple[str]] = execute_sql("SELECT * FROM student;")
@@ -96,16 +93,23 @@ with tab2:
  result_la_versions:list[str] = [x[0] for x in result_la_versions_raw]
  result_view_2:list[tuple] = []
 
- if result_la_versions != []:
+#get leistungsuebersicht
+result_la_versions_raw:list[tuple[str]] = execute_sql(f"SELECT DISTINCT LA_version FROM v_leistungsuebersicht WHERE Matrikelnummer = {selected_student[Student.matrikelnummer]}")
+
+#format results
+result_la_versions:list[str] = [x[0] for x in result_la_versions_raw]
+
+result_view_2:list[tuple] = []
+
+if result_la_versions != []:
     la_version_selection = st.selectbox("LA_Version: ", result_la_versions)
 
     result_view_2 = execute_sql(f"SELECT * FROM v_leistungsuebersicht WHERE Matrikelnummer = {selected_student[Student.matrikelnummer]} AND LA_version = {la_version_selection};")
     result_view_2.insert(0, view_2_table_header)
 
 
- #write out data
-
- st.table(result_view_2)
+#write out data
+st.table(result_view_2)
 
 #get anerkennungsübersicht
 with tab3:
@@ -115,7 +119,6 @@ with tab3:
     result_view_3.insert(0, view_3_table_header)
 
 #write out data
+st.header("Anerkennungsübersicht")
 
- st.header("Anerkennungsübersicht")
-
- st.table(result_view_3)
+st.table(result_view_3)
