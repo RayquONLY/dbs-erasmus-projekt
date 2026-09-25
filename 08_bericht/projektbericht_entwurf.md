@@ -411,7 +411,21 @@ Das Modell befindet sich in der 3. Normalform.
 
 ## 9. Datendefinition
 
+
+
 ## 10. Physischer Entwurf
+
+Für häufig verwendete Suchanfragen wurden zusätzlich eigene Indizes angelegt.
+
+Darunter wurde ein Index für die Matrikelnummer hinsichtlich der Bewerbungen und ein weiterer Index für den Status eines Auslandsaufenthalts erstellt, die wie folgt aussehen:
+
+CREATE INDEX idx_bewerbung_matrikelnummer
+ON bewerbung(matrikelnummer);
+
+CREATE INDEX idx_auslandsaufenthalt_status
+ON auslandsaufenthalt(status);
+
+Der Index idx_bewerbung_matrikelnummer unterstützt Abfragen, bei denen die Bewerbungen eines Studenten gesucht, und idx_auslandsaufenthalt_status, bei denen Auslandsaufenthalte nach ihrem Status gefiltert werden.
 
 ## 11. Implementierung
 
