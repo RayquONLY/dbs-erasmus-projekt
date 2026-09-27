@@ -431,4 +431,11 @@ Der Index idx_bewerbung_matrikelnummer unterstützt Abfragen, bei denen die Bewe
 
 ## 12. SQL-Anfragen
 
+In 06_sql/queries.sql werden die zehn SQL-Anfragen der Aufgabenstellung umgesetzt. Sie orientieren sich an den drei modellierten Use-Cases: Bewerbung und Platzvergabe, Aufenthalt und Planung sowie Rückkehr und Anerkennung.
+
+Die Anfragen umfassen unter anderem die gesamte Bewerbungsübersicht, Bewerbungen nach einem ausgewählten Status, das Zählen von Bewerbungen nach Status, die Nachfrage pro Partneruniversität, Sprachnachweise pro Bewerbung, den Auslandsaufenthalt mit Nominierung und Partneruniversität, das Learning Agreement mit Versionen, Kurszuordnungen der neuesten Learning-Agreement-Version, die Summe anerkannter ECTS pro Aufenthalt und teilweise oder nicht anerkannte Leistungen.
+
+Dabei werden verschiedene SQL-Konzepte umgesetzt, die sich an der Anforderungsanalyse orientieren, insbesondere Joins über mehrere Tabellen, Aggregationen wie COUNT und SUM, Views, eine Sub-Anfrage sowie eine parametrisierte Query.
+
+
 ## 13. Fazit
