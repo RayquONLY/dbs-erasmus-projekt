@@ -1,14 +1,12 @@
 # Projektbericht – DBS Erasmus-Projekt
 
-## 1. Einleitung
-
-## 2. Szenario und Zielsetzung
+## 1. Einleitung und Zielsetzung
 
 Ziel unseres DBS-Projektes ist die Konzeption und Entwicklung eines Datenbank-Tools und -Modells zur Verwaltung und Darstellung der Erasmus-Outgoing-Prozesse an der Mathematisch-Naturwissenschaftlichen Fakultät der HU.
 Dabei liegt unser Fokus vor allem auf der Bewerbung, der Kursplanung über das Learning-Agreement sowie der Anerkennung erbrachter Studienleistungen.
 
 
-## 3. Quellen und fachliche Orientierung
+## 2. Quellen und fachliche Orientierung
 
 ## Quelle: MNF Erasmus-Seite
 **Link:** 
@@ -95,11 +93,11 @@ Ablauf anschaulich und zeitlich strukturiert (Möglichkeiten, Motivation, Partne
 - Dokumentfrist
 
 
-## 4. Annahmen und Abgrenzungen
+## 3. Annahmen und Abgrenzungen
 
 Finanzierung, Wohnung, Versicherung und ähnliche Themen existieren im realen Erasmus-Prozess, gehören aber nicht zu unserem Kern: Bewerbung, Kursplanung und Anerkennung.
 
-## 5. Anforderungsanalyse
+## 4. Anforderungsanalyse
 
 Für die Anforderungsanalyse wurden drei für das Thema relevante Use-Cases definiert.
 
@@ -107,7 +105,7 @@ Für die Anforderungsanalyse wurden drei für das Thema relevante Use-Cases defi
 2. Planung - Learning Agreement erstellen und Kurszuordnung planen
 3. Kursanrechnung - Im Ausland erbrachte Leistungen anerkennen
 
-## 6. Use Cases
+## 5. Use Cases
 
 ### Use Case 1: Anmeldung - Bewerbung und Platzvergabe
 
@@ -276,7 +274,7 @@ Die an der Partneruniversität erbrachten Leistungen werden nach Rückkehr des S
 | 6 | Speicherung von Anerkennungsentscheidungen pro Leistung |
 | 7 | Statusverfolgung des Anerkennungsverfahrens |
 
-## 7. Konzeptueller Entwurf
+## 6. Konzeptueller Entwurf
 
 Für den Konzeptionellen Entwurf wurde ein ER-Diagram in Chen notation erstellt. 
 
@@ -327,7 +325,7 @@ Institut 1:n Koordinator
 Institut 1:1 Prüfungsausschuss
 
 
-## 8. Logischer Entwurf
+## 7. Logischer Entwurf
 
 Für den Logischen Entwurf des Datenbakmodells wurde das ER-Diagram in ein Relationenmodell überführt.
 
@@ -409,11 +407,11 @@ Das Modell befindet sich in der 3. Normalform.
 2. Normalform ist gegeben, da die 1. Normalform gilt und jedes Nichtschlüsselattribut von jedem Schlüsselkandidaten voll funktional abhängig ist.
 3. Normalform ist gegeben, da die 2. Normalform gilt und kein Nichtschlüsselattribut transitiv von einem Schlüsselkandidaten abhängig ist.
 
-## 9. Datendefinition
+## 8. Datendefinition
 
 
 
-## 10. Physischer Entwurf
+## 9. Physischer Entwurf
 
 Für häufig verwendete Suchanfragen wurden zusätzlich eigene Indizes angelegt.
 
@@ -427,9 +425,9 @@ ON auslandsaufenthalt(status);
 
 Der Index idx_bewerbung_matrikelnummer unterstützt Abfragen, bei denen die Bewerbungen eines Studenten gesucht, und idx_auslandsaufenthalt_status, bei denen Auslandsaufenthalte nach ihrem Status gefiltert werden.
 
-## 11. Implementierung
+## 10. Implementierung
 
-## 12. SQL-Anfragen
+## 11. SQL-Anfragen
 
 In 06_sql/queries.sql werden die zehn SQL-Anfragen der Aufgabenstellung umgesetzt. Sie orientieren sich an den drei modellierten Use-Cases: Bewerbung und Platzvergabe, Aufenthalt und Planung sowie Rückkehr und Anerkennung.
 
@@ -438,4 +436,4 @@ Die Anfragen umfassen unter anderem die gesamte Bewerbungsübersicht, Bewerbunge
 Dabei werden verschiedene SQL-Konzepte umgesetzt, die sich an der Anforderungsanalyse orientieren, insbesondere Joins über mehrere Tabellen, Aggregationen wie COUNT und SUM, Views, eine Sub-Anfrage sowie eine parametrisierte Query.
 
 
-## 13. Fazit
+## 12. Fazit
