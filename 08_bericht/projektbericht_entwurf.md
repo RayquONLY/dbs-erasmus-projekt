@@ -430,9 +430,9 @@ Der Index idx_bewerbung_matrikelnummer unterstützt Abfragen, bei denen die Bewe
 ## 10. Implementierung
 
 ### Datenbank
-Die Datenbank wurde mit PostgreSQL aufgesetzt. Wir haben uns für PostgreSQL entschieden, da es sich gut für komplexere Systeme eignet und eine große auswahl an Features anbietet.
+Die Datenbank wurde mit PostgreSQL aufgesetzt. Wir haben uns für PostgreSQL entschieden, da es sich gut für komplexere Systeme eignet und eine große Auswahl an Features anbietet.
 
-Für das initiale aufsetzen der Datenbank wurde ein SQL Skript verwendet, welche die grundlegenden Tabellen und Relationen anlegen. Ein weiteres SQL Skript befüllt die Tabellen mit einigen Beispieldaten. Weiterhin wurde ein Python CLI Tool entwickelt, welches das aufsetzen und zurücksetzen der Datenbank in den Initialzustand automatisiert.
+Für das initiale Aufsetzen der Datenbank wurde ein SQL Skript verwendet, welche die grundlegenden Tabellen und Relationen anlegen. Ein weiteres SQL Skript befüllt die Tabellen mit einigen Beispieldaten. Weiterhin wurde ein Python CLI Tool entwickelt, welches das aufsetzen und zurücksetzen der Datenbank in den Initialzustand automatisiert.
 
 Zu finden ist das CLI Tool im Projektordner unter:
 
@@ -441,9 +441,9 @@ Zu finden ist das CLI Tool im Projektordner unter:
 
 ### CLI-Tool
 
-Das CLI Tool wurde in Python entwickelt. Das Tool umfasst das Aufsetzen der Datenbank und das starten der Streamlit-Dashboard-Übersicht.
+Das CLI Tool wurde in Python entwickelt. Das Tool umfasst das Aufsetzen der Datenbank und das Starten der Streamlit-Dashboard-Übersicht.
 
-Die benötigten Packete sind in der requirements.txt festgehalten. Verwendet wurden:
+Die benötigten Pakete sind in der requirements.txt festgehalten. Verwendet wurden:
 
 - psycopg2 (zum ausführen der SQL Befehle und Skripte)
 - Streamlit (für das Erstellen der Dashboard-Übersicht)
@@ -457,12 +457,12 @@ Das Dashboard wurde mit Streamlit in Python entwickelt.
 
 Es enthält für einen auswählbaren Studenten eine Übersicht der wichtigsten Daten des Systems. Alle Daten werden per SQL Anfrage gesammelt und mit Pyhton für das Dashboard darstellbar gemacht.
 
-Zuerst werden die drei wichtigsten Kennwerte "Bewerbungsstatus", "Anerkannte ECTS" und "Learning-Agreement-Version" angezeigt. Die Restlichen übersichten sind in Tabs direkt unter den Kennwerten aufgeteilt.
+Zuerst werden die drei wichtigsten Kennwerte "Bewerbungsstatus", "Anerkannte ECTS" und "Learning-Agreement-Version" angezeigt. Die Restlichen Übersichten sind in Tabs direkt unter den Kennwerten aufgeteilt.
 
 - Bewerbung: 
 Bewerbungsstatus, Priorität, Partneruniversität, ...
-- Learning Agreement: Gastkurs und HU-Kurs zuordnung, Status, Note, ...
-- Anerkennung: Gastkurs und HU-Kurs zuordnung, Entscheidungsstatus, ...
+- Learning Agreement: Gastkurs und HU-Kurs Zuordnung, Status, Note, ...
+- Anerkennung: Gastkurs und HU-Kurs Zuordnung, Entscheidungsstatus, ...
 
 ## 11. SQL-Anfragen
 
