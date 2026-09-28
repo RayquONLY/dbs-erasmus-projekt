@@ -475,7 +475,7 @@ Dabei werden verschiedene SQL-Konzepte umgesetzt, die sich an der Anforderungsan
 
 ## 12. Fazit
 
-Zusammenfassend entstand ein relationales Datenbankmodell für die Erasmus-Outgoing-Prozesse der MNF der HU.
+Zusammenfassend entstand ein relationales Datenbankmodell für die Erasmus-Outgoing-Prozesse der Mathematisch-Naturwissenschaftlichen Fakultät der HU.
 Der Fokus lag dabei auf den drei Bereichen Bewerbung und Platzvergabe, Aufenthalt und Kursplanung
 sowie Rückkehr und Anerkennung.
 
