@@ -481,8 +481,8 @@ sowie Rückkehr und Anerkennung.
 
 Nach der Erstellung des konzeptionellen und logischen Datenmodells
 wurden diese anschließend in PostgreSQL umgesetzt. Zudem wurde die Umsetzung durch Beispieldaten, Views, Indizes
-und SQL-Anfragen weiter ergänzt. Abschließend wurde ein Dashboard mit Streamlit entwickelt. Das die zentrale Informationen
+und SQL-Anfragen weiter ergänzt. Abschließend wurde ein Dashboard mit Streamlit entwickelt das die zentrale Informationen
 wie unteranderem: Bewerbungsstatus, Learning-Agreement-Versionen und anerkannte ECTS übersichtlich darstellt.
 
-So entstand ein funktionsfähiger Prototyp. Der die modellierten Erasmus-Prozesse abbildet und
+So entstand ein funktionsfähiger Prototyp der die modellierten Erasmus-Prozesse abbildet und
 die Daten auf zwei Wege nutzbar macht: direkt über SQL-Anfragen und über eine grafische Oberfläche.
