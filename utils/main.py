@@ -41,6 +41,9 @@ def main() -> None:
           except psycopg2.errors.SyntaxError as e:
             print(e)
             print("Found SQL Syntax error. Aborting.")
+          except ValueError as e:
+            print(e)
+            print("Path can't be empty, check your .env File.")
           sleep(1)
       case "3":
         exit = True
