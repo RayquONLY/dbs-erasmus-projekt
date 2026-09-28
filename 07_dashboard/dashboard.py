@@ -86,39 +86,39 @@ with tab1:
 
 
 with tab2:
- st.header("Leistungsübersicht")
+    st.header("Leistungsübersicht")
 
- #get leistungsuebersicht
- result_la_versions_raw:list[tuple[str]] = execute_sql(f"SELECT DISTINCT LA_version FROM v_leistungsuebersicht WHERE Matrikelnummer = {selected_student[Student.matrikelnummer]}")
- result_la_versions:list[str] = [x[0] for x in result_la_versions_raw]
- result_view_2:list[tuple] = []
+    #get leistungsuebersicht
+    result_la_versions_raw:list[tuple[str]] = execute_sql(f"SELECT DISTINCT LA_version FROM v_leistungsuebersicht WHERE Matrikelnummer = {selected_student[Student.matrikelnummer]}")
+    result_la_versions:list[str] = [x[0] for x in result_la_versions_raw]
+    result_view_2:list[tuple] = []
 
- #get leistungsuebersicht
- result_la_versions_raw:list[tuple[str]] = execute_sql(f"SELECT DISTINCT LA_version FROM v_leistungsuebersicht WHERE Matrikelnummer = {selected_student[Student.matrikelnummer]}")
+    #get leistungsuebersicht
+    result_la_versions_raw:list[tuple[str]] = execute_sql(f"SELECT DISTINCT LA_version FROM v_leistungsuebersicht WHERE Matrikelnummer = {selected_student[Student.matrikelnummer]}")
 
- #format results
- result_la_versions:list[str] = [x[0] for x in result_la_versions_raw]
+    #format results
+    result_la_versions:list[str] = [x[0] for x in result_la_versions_raw]
 
- result_view_2:list[tuple] = []
+    result_view_2:list[tuple] = []
 
- if result_la_versions != []:
-    la_version_selection = st.selectbox("LA_Version: ", result_la_versions)
+    if result_la_versions != []:
+        la_version_selection = st.selectbox("LA_Version: ", result_la_versions)
 
-    result_view_2 = execute_sql(f"SELECT * FROM v_leistungsuebersicht WHERE Matrikelnummer = {selected_student[Student.matrikelnummer]} AND LA_version = {la_version_selection};")
-    result_view_2.insert(0, view_2_table_header)
+        result_view_2 = execute_sql(f"SELECT * FROM v_leistungsuebersicht WHERE Matrikelnummer = {selected_student[Student.matrikelnummer]} AND LA_version = {la_version_selection};")
+        result_view_2.insert(0, view_2_table_header)
 
 
- #write out data
- st.table(result_view_2)
+    #write out data
+    st.table(result_view_2)
 
 #get anerkennungsübersicht
 with tab3:
- result_view_3:list[tuple] = execute_sql(f"SELECT * FROM v_anerkennungsuebersicht WHERE Matrikelnummer = {selected_student[Student.matrikelnummer]}")
+    result_view_3:list[tuple] = execute_sql(f"SELECT * FROM v_anerkennungsuebersicht WHERE Matrikelnummer = {selected_student[Student.matrikelnummer]}")
 
- if result_view_3 != []:
-    result_view_3.insert(0, view_3_table_header)
+    if result_view_3 != []:
+        result_view_3.insert(0, view_3_table_header)
 
- #write out data
- st.header("Anerkennungsübersicht")
+    #write out data
+    st.header("Anerkennungsübersicht")
 
- st.table(result_view_3)
+    st.table(result_view_3)

@@ -409,7 +409,9 @@ Das Modell befindet sich in der 3. Normalform.
 
 ## 8. Datendefinition
 
+Für die Datendefinition wurde der Logische Entwurf in eine .sql Skript-Datei überführt, welche alle erforderlichen Tabellen mit SQL Befehlen erstellt. Diese ist zu finden unter `./utils/create_db.sql`
 
+Dabei wurden für die Tabelleneinträge passende Datentypen gewählt und die Primär und Fremdschlüssel angegeben.
 
 ## 9. Physischer Entwurf
 
@@ -417,19 +419,54 @@ Für häufig verwendete Suchanfragen wurden zusätzlich eigene Indizes angelegt.
 
 Darunter wurde ein Index für die Matrikelnummer hinsichtlich der Bewerbungen und ein weiterer Index für den Status eines Auslandsaufenthalts erstellt, die wie folgt aussehen:
 
-CREATE INDEX idx_bewerbung_matrikelnummer
-ON bewerbung(matrikelnummer);
+`CREATE INDEX idx_bewerbung_matrikelnummer
+ON bewerbung(matrikelnummer);`
 
-CREATE INDEX idx_auslandsaufenthalt_status
-ON auslandsaufenthalt(status);
+`CREATE INDEX idx_auslandsaufenthalt_status
+ON auslandsaufenthalt(status);`
 
 Der Index idx_bewerbung_matrikelnummer unterstützt Abfragen, bei denen die Bewerbungen eines Studenten gesucht, und idx_auslandsaufenthalt_status, bei denen Auslandsaufenthalte nach ihrem Status gefiltert werden.
 
 ## 10. Implementierung
 
+### Datenbank
+Die Datenbank wurde mit PostgreSQL aufgesetzt. Wir haben uns für PostgreSQL entschieden, da es sich gut für komplexere Systeme eignet und eine große auswahl an Features anbietet.
+
+Für das initiale aufsetzen der Datenbank wurde ein SQL Skript verwendet, welche die grundlegenden Tabellen und Relationen anlegen. Ein weiteres SQL Skript befüllt die Tabellen mit einigen Beispieldaten. Weiterhin wurde ein Python CLI Tool entwickelt, welches das aufsetzen und zurücksetzen der Datenbank in den Initialzustand automatisiert.
+
+Zu finden ist das CLI Tool im Projektordner unter:
+
+
+`./utils/main.py`
+
+### CLI-Tool
+
+Das CLI Tool wurde in Python entwickelt. Das Tool umfasst das Aufsetzen der Datenbank und das starten der Streamlit-Dashboard-Übersicht.
+
+Die benötigten Packete sind in der requirements.txt festgehalten. Verwendet wurden:
+
+- psycopg2 (zum ausführen der SQL Befehle und Skripte)
+- Streamlit (für das Erstellen der Dashboard-Übersicht)
+- Jupyter (Für das Ausführen der Beispiel Queries)
+
+Das CLI benötigt eine passende .env Datei, welche die Login-Daten der genutzten Datenbank enthält. Ein Template dieser .env Datei ist im Projektordner zu finden.
+
+### Dashboard
+
+Das Dashboard wurde mit Streamlit in Python entwickelt.
+
+Es enthält für einen auswählbaren Studenten eine Übersicht der wichtigsten Daten des Systems. Alle Daten werden per SQL Anfrage gesammelt und mit Pyhton für das Dashboard darstellbar gemacht.
+
+Zuerst werden die drei wichtigsten Kennwerte "Bewerbungsstatus", "Anerkannte ECTS" und "Learning-Agreement-Version" angezeigt. Die Restlichen übersichten sind in Tabs direkt unter den Kennwerten aufgeteilt.
+
+- Bewerbung: 
+Bewerbungsstatus, Priorität, Partneruniversität, ...
+- Learning Agreement: Gastkurs und HU-Kurs zuordnung, Status, Note, ...
+- Anerkennung: Gastkurs und HU-Kurs zuordnung, Entscheidungsstatus, ...
+
 ## 11. SQL-Anfragen
 
-In 06_sql/queries.sql werden die zehn SQL-Anfragen der Aufgabenstellung umgesetzt. Sie orientieren sich an den drei modellierten Use-Cases: Bewerbung und Platzvergabe, Aufenthalt und Planung sowie Rückkehr und Anerkennung.
+In `06_sql/queries.sql` werden die zehn SQL-Anfragen der Aufgabenstellung umgesetzt. Sie orientieren sich an den drei modellierten Use-Cases: Bewerbung und Platzvergabe, Aufenthalt und Planung sowie Rückkehr und Anerkennung.
 
 Die Anfragen umfassen unter anderem die gesamte Bewerbungsübersicht, Bewerbungen nach einem ausgewählten Status, das Zählen von Bewerbungen nach Status, die Nachfrage pro Partneruniversität, Sprachnachweise pro Bewerbung, den Auslandsaufenthalt mit Nominierung und Partneruniversität, das Learning Agreement mit Versionen, Kurszuordnungen der neuesten Learning-Agreement-Version, die Summe anerkannter ECTS pro Aufenthalt und teilweise oder nicht anerkannte Leistungen.
 
