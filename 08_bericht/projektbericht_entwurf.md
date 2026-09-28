@@ -334,70 +334,70 @@ Für den logischen Entwurf des Datenbankmodells wurde das ER-Diagramm in ein Rel
 
 Student (<ins>matrikelnummer</ins>, *studiengang_id*, vorname, nachname, email)
 
-Studiengang (<u>studiengang_id</u>, *institut_id*, name, abschluss)
+Studiengang (<ins>studiengang_id</ins>, *institut_id*, name, abschluss)
 
-Institut (<u>institut_id</u>, *fakultät_id*, name)
+Institut (<ins>institut_id</ins>, *fakultät_id*, name)
 
-Fakultät (<u>fakultät_id</u>, name)
+Fakultät (<ins>fakultät_id</ins>, name)
 
-Partneruniversität (<u>partneruniversität_erasmus_code</u>, *land_id*, name, stadt)
+Partneruniversität (<ins>partneruniversität_erasmus_code</ins>, *land_id*, name, stadt)
 
-Land (<u>land_id</u>, name, ländercode)
+Land (<ins>land_id</ins>, name, ländercode)
 
-Koordinator (<u>koordinator_id</u>, *institut_id*, email, name)
+Koordinator (<ins>koordinator_id</ins>, *institut_id*, email, name)
 
-Prüfungsausschuss (<u>prüfungsausschuss_id</u>, *institut_id*)
+Prüfungsausschuss (<ins>prüfungsausschuss_id</ins>, *institut_id*)
 
 
 ### Bewerbung und Platzvergabe
 
-Austauschkontingent (<u>austauschkontingent_id</u>, *partneruniversität_erasmus_code*, *institut_id*, platzanzahl, studienphase, akademisches_jahr)
+Austauschkontingent (<ins>austauschkontingent_id</ins>, *partneruniversität_erasmus_code*, *institut_id*, platzanzahl, studienphase, akademisches_jahr)
 
-Bewerbungsrunde (<u>bewerbungsrunde_id</u>, semester, anfangsfrist, endfrist, status)
+Bewerbungsrunde (<ins>bewerbungsrunde_id</ins>, semester, anfangsfrist, endfrist, status)
 
-Bewerbung (<u>bewerbung_id</u>, *bewerbungsrunde_id*, *matrikelnummer*, status)
+Bewerbung (<ins>bewerbung_id</ins>, *bewerbungsrunde_id*, *matrikelnummer*, status)
 
-Bewerbungsdokument (<u>bewerbungsdokument_id</u>, *bewerbung_id*, dokumenttyp =[leistungsspiegel, lebenslauf, motivationsschreiben], dateiname, einreichungsdatum, status)
+Bewerbungsdokument (<ins>bewerbungsdokument_id</ins>, *bewerbung_id*, dokumenttyp =[leistungsspiegel, lebenslauf, motivationsschreiben], dateiname, einreichungsdatum, status)
 
-Sprachnachweis (<u>sprachnachweis_id</u>, *matrikelnummer*, sprache, niveau, nachweistyp, status)
+Sprachnachweis (<ins>sprachnachweis_id</ins>, *matrikelnummer*, sprache, niveau, nachweistyp, status)
 
 Bewerbung_Sprachnachweis (*bewerbung_id*, *sprachnachweis_id*)
 
-Nominierung (<u>nominierung_id</u>, *austauschkontingent_id*, *bewerbung_id*, *koordinator_id*, status, nominierungsdatum)
+Nominierung (<ins>nominierung_id</ins>, *austauschkontingent_id*, *bewerbung_id*, *koordinator_id*, status, nominierungsdatum)
 
-Auswahlentscheidung (<u>auswahlentscheidung_id</u>, *bewerbung_id*, *koordinator_id*, entscheidungsdatum, status, entscheidungsgeber)
+Auswahlentscheidung (<ins>auswahlentscheidung_id</ins>, *bewerbung_id*, *koordinator_id*, entscheidungsdatum, status, entscheidungsgeber)
 
-Bewerbungspräferenz (<u>bewerbungspräferenz_id</u>, *bewerbung_id*, *austauschkontingent_id*, priorität)
+Bewerbungspräferenz (<ins>bewerbungspräferenz_id</ins>, *bewerbung_id*, *austauschkontingent_id*, priorität)
 
 
 ### Aufenthalt und Planung
 
-Auslandsaufenthalt (<u>auslandsaufenthalt_id</u>, *nominierung_id*, semester, status, startdatum, enddatum)
+Auslandsaufenthalt (<ins>auslandsaufenthalt_id</ins>, *nominierung_id*, semester, status, startdatum, enddatum)
 
-Gastkurs (<u>gastkurs_id</u>, *partneruniversität_erasmus_code*, name, fach, ects)
+Gastkurs (<ins>gastkurs_id</ins>, *partneruniversität_erasmus_code*, name, fach, ects)
 
-HU-Modul (<u>hu_modul_id</u>, *studiengang_id*, name, fach, ects)
+HU-Modul (<ins>hu_modul_id</ins>, *studiengang_id*, name, fach, ects)
 
-Kurszuordnung (<u>kurszuordnung_id</u>, *learning_agreement_version_id*, *gastkurs_id*, *hu_modul_id*, status)
+Kurszuordnung (<ins>kurszuordnung_id</ins>, *learning_agreement_version_id*, *gastkurs_id*, *hu_modul_id*, status)
 
-LearningAgreement (<u>learning_agreement_id</u>, *auslandsaufenthalt_id*, status, erstellungsdatum)
+LearningAgreement (<ins>learning_agreement_id</ins>, *auslandsaufenthalt_id*, status, erstellungsdatum)
 
-LearningAgreementVersion (<u>learning_agreement_version_id</u>, *learning_agreement_id*, versionsnummer, grund, status, erstellungsdatum)
+LearningAgreementVersion (<ins>learning_agreement_version_id</ins>, *learning_agreement_id*, versionsnummer, grund, status, erstellungsdatum)
 
-Genehmigung (<u>genehmigungs_id</u>, *learning_agreement_version_id*, *koordinator_id*, status, genehmigungsinstanz, genehmigungsdatum)
+Genehmigung (<ins>genehmigungs_id</ins>, *learning_agreement_version_id*, *koordinator_id*, status, genehmigungsinstanz, genehmigungsdatum)
 
-Confirmation (<u>confirmation_id</u>, *auslandsaufenthalt_id*, typ, status, ausstellungsdatum, einreichungsdatum)
+Confirmation (<ins>confirmation_id</ins>, *auslandsaufenthalt_id*, typ, status, ausstellungsdatum, einreichungsdatum)
 
 
 ### Rückkehr und Anerkennung
 
-TranscriptOfRecords (<u>transcriptofrecords_id</u>, *auslandsaufenthalt_id*, status, ausstellungsdatum, einreichungsdatum)
+TranscriptOfRecords (<ins>transcriptofrecords_id</ins>, *auslandsaufenthalt_id*, status, ausstellungsdatum, einreichungsdatum)
 
-ErbrachteLeistung (<u>erbrachteleistungs_id</u>, *transcriptofrecords_id*, *gastkurs_id*, kursname, ects, note, bestanden)
+ErbrachteLeistung (<ins>erbrachteleistungs_id</ins>, *transcriptofrecords_id*, *gastkurs_id*, kursname, ects, note, bestanden)
 
-Anerkennungsantrag (<u>anerkennungsantrag_id</u>, *auslandsaufenthalt_id*, *prüfungsausschuss_id*, status, einreichungsdatum)
+Anerkennungsantrag (<ins>anerkennungsantrag_id</ins>, *auslandsaufenthalt_id*, *prüfungsausschuss_id*, status, einreichungsdatum)
 
-Anerkennungsentscheidung (<u>anerkennungsentscheidung_id</u>, *anerkennungsantrag_id*, *erbrachteleistungs_id*, *hu_modul_id*, entscheidung, anerkannte_ects, entscheidungsdatum)
+Anerkennungsentscheidung (<ins>anerkennungsentscheidung_id</ins>, *anerkennungsantrag_id*, *erbrachteleistungs_id*, *hu_modul_id*, entscheidung, anerkannte_ects, entscheidungsdatum)
 
 
 ### Normalform:
