@@ -46,7 +46,7 @@ def create_tables() -> None:
   if sql_file == None:
     raise(ValueError)
   command: str = ""
-  with open("", "r") as f:
+  with open(sql_file, "r") as f:
     command = f.read()
     #print(command)
     execute_sql(command)
