@@ -474,3 +474,15 @@ Dabei werden verschiedene SQL-Konzepte umgesetzt, die sich an der Anforderungsan
 
 
 ## 12. Fazit
+
+Zusammenfassend entstand ein relationales Datenbankmodell für die Erasmus-Outgoing-Prozesse der MNF der HU.
+Der Fokus lag dabei auf den drei Bereichen Bewerbung und Platzvergabe, Aufenthalt und Kursplanung
+sowie Rückkehr und Anerkennung.
+
+Nach der Erstellung des konzeptionellen und logischen Datenmodells
+wurden diese anschließend in PostgreSQL umgesetzt. Zudem wurde die Umsetzung durch Beispieldaten, Views, Indizes
+und SQL-Anfragen weiter ergänzt. Abschließend wurde ein Dashboard mit Streamlit entwickelt. Das die zentrale Informationen
+wie unteranderem: Bewerbungsstatus, Learning-Agreement-Versionen und anerkannte ECTS übersichtlich darstellt.
+
+So entstand ein funktionsfähiger Prototyp. Der die modellierten Erasmus-Prozesse abbildet und
+die Daten auf zwei Wege nutzbar macht: direkt über SQL-Anfragen und über eine grafische Oberfläche.
