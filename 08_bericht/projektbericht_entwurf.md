@@ -457,7 +457,7 @@ Das Dashboard wurde mit Streamlit in Python entwickelt.
 
 Es enthält für einen auswählbaren Studenten eine Übersicht der wichtigsten Daten des Systems. Alle Daten werden per SQL Anfrage gesammelt und mit Pyhton für das Dashboard darstellbar gemacht.
 
-Zuerst werden die drei wichtigsten Kennwerte "Bewerbungsstatus", "Anerkannte ECTS" und "Learning-Agreement-Version" angezeigt. Die Restlichen Übersichten sind in Tabs direkt unter den Kennwerten aufgeteilt.
+Zuerst werden die drei wichtigsten Kennwerte "Bewerbungsstatus", "Anerkannte ECTS" und "Learning-Agreement-Version" angezeigt. Die restlichen Übersichten sind in Tabs direkt unter den Kennwerten aufgeteilt.
 
 - Bewerbung: 
 Bewerbungsstatus, Priorität, Partneruniversität, ...
