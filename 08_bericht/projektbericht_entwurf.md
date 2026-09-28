@@ -327,12 +327,12 @@ Institut 1:1 Prüfungsausschuss
 
 ## 7. Logischer Entwurf
 
-Für den Logischen Entwurf des Datenbakmodells wurde das ER-Diagram in ein Relationenmodell überführt.
+Für den logischen Entwurf des Datenbankmodells wurde das ER-Diagramm in ein Relationenmodell überführt.
 
 
 ### Grund-Entitäten
 
-Student (<u>matrikelnummer</u>, *studiengang_id*, vorname, nachname, email)
+Student (<ins>matrikelnummer</ins>, *studiengang_id*, vorname, nachname, email)
 
 Studiengang (<u>studiengang_id</u>, *institut_id*, name, abschluss)
 
@@ -359,7 +359,7 @@ Bewerbung (<u>bewerbung_id</u>, *bewerbungsrunde_id*, *matrikelnummer*, status)
 
 Bewerbungsdokument (<u>bewerbungsdokument_id</u>, *bewerbung_id*, dokumenttyp =[leistungsspiegel, lebenslauf, motivationsschreiben], dateiname, einreichungsdatum, status)
 
-Sprachnachweis (<u>sprachnachweis_id</u>, *bewerbung_id*, sprache, niveau, nachweistyp, status)
+Sprachnachweis (<u>sprachnachweis_id</u>, *matrikelnummer*, sprache, niveau, nachweistyp, status)
 
 Bewerbung_Sprachnachweis (*bewerbung_id*, *sprachnachweis_id*)
 
@@ -378,13 +378,13 @@ Gastkurs (<u>gastkurs_id</u>, *partneruniversität_erasmus_code*, name, fach, ec
 
 HU-Modul (<u>hu_modul_id</u>, *studiengang_id*, name, fach, ects)
 
-Kurszuordnung (<u>kurszuordnung_id</u>, *LearningAgreementVersion_id*, *gastkurs_id*, *hu_modul_id*, status)
+Kurszuordnung (<u>kurszuordnung_id</u>, *learning_agreement_version_id*, *gastkurs_id*, *hu_modul_id*, status)
 
-LearningAgreement (<u>LearningAgreement_id</u>, *aufenthalt_id*, status, erstellungsdatum)
+LearningAgreement (<u>learning_agreement_id</u>, *auslandsaufenthalt_id*, status, erstellungsdatum)
 
-LearningAgreementVersion (<u>LearningAgreementVersion_id</u>, *LearningAgreement_id*, versionsnummer, grund, status, erstellungsdatum)
+LearningAgreementVersion (<u>learning_agreement_version_id</u>, *learning_agreement_id*, versionsnummer, grund, status, erstellungsdatum)
 
-Genehmigung (<u>genehmigungs_id</u>, *LearningAgreementVersion_id*, *koordinator_id*, status, genehmigungsinstanz, genehmigungsdatum)
+Genehmigung (<u>genehmigungs_id</u>, *learning_agreement_version_id*, *koordinator_id*, status, genehmigungsinstanz, genehmigungsdatum)
 
 Confirmation (<u>confirmation_id</u>, *auslandsaufenthalt_id*, typ, status, ausstellungsdatum, einreichungsdatum)
 
