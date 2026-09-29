@@ -28,7 +28,7 @@ def main() -> None:
     match option:
       case "1":
         try:
-          subprocess.run([sys.executable,"-m","streamlit","run","./07_dashboard/dashboard.py"])
+          subprocess.run([sys.executable,"-m","streamlit","run","./06_dashboard/dashboard.py"])
         except KeyboardInterrupt as e:
           print("Dashboard closed")
       case "2":
@@ -41,6 +41,9 @@ def main() -> None:
           except psycopg2.errors.SyntaxError as e:
             print(e)
             print("Found SQL Syntax error. Aborting.")
+          except ValueError as e:
+            print(e)
+            print("Path can't be empty, check your .env File.")
           sleep(1)
       case "3":
         exit = True

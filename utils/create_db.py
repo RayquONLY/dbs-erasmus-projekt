@@ -30,9 +30,11 @@ def recreate_db() -> None:
 
 
 def fill_tables() -> None:
-  
+  sql_file = getenv("DB_FILL_TABLES_FILE")
+  if sql_file == None:
+    raise(ValueError)
   command: str = ""
-  with open("/home/jonathan/Documents/UNI/GitLab/dbs-erasmus-projekt/06_sql/fill_db.sql", "r") as f:
+  with open(sql_file, "r") as f:
     command = f.read()
     #print(command)
     execute_sql(command)
@@ -40,8 +42,11 @@ def fill_tables() -> None:
 
 
 def create_tables() -> None:
+  sql_file = getenv("DB_CREATE_TABLES_FILE")
+  if sql_file == None:
+    raise(ValueError)
   command: str = ""
-  with open("/home/jonathan/Documents/UNI/GitLab/dbs-erasmus-projekt/06_sql/create_db.sql", "r") as f:
+  with open(sql_file, "r") as f:
     command = f.read()
     #print(command)
     execute_sql(command)
