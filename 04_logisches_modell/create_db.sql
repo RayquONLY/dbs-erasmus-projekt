@@ -199,6 +199,7 @@ CREATE TABLE bewerbung_sprachnachweis (
 bewerbung_id INTEGER NOT NULL,
 sprachnachweis_id INTEGER NOT NULL,
 
+PRIMARY KEY (bewerbung_id, sprachnachweis_id),
 
 FOREIGN KEY (bewerbung_id)
 REFERENCES bewerbung(bewerbung_id),
@@ -212,7 +213,7 @@ REFERENCES sprachnachweis(sprachnachweis_id)
 CREATE TABLE nominierung (
 nominierung_id INTEGER PRIMARY KEY,
 austauschkontingent_id INTEGER NOT NULL,
-bewerbung_id INTEGER NOT NULL,
+bewerbung_id INTEGER NOT NULL UNIQUE,
 koordinator_id INTEGER NOT NULL,
 status VARCHAR(255) CHECK (status IN (
     'vorbereitet',
@@ -282,7 +283,7 @@ UNIQUE (bewerbung_id, austauschkontingent_id)
 
 CREATE TABLE auslandsaufenthalt (
 auslandsaufenthalt_id INTEGER PRIMARY KEY,
-nominierung_id INTEGER NOT NULL,
+nominierung_id INTEGER NOT NULL UNIQUE,
 semester CHAR(4) NOT NULL,
 status VARCHAR(255) CHECK (status IN (
     'geplant',
@@ -329,7 +330,7 @@ FOREIGN KEY (studiengang_id) REFERENCES studiengang(studiengang_id)
 
 CREATE TABLE learning_agreement (
 learning_agreement_id INTEGER PRIMARY KEY,
-auslandsaufenthalt_id INTEGER NOT NULL,
+auslandsaufenthalt_id INTEGER NOT NULL UNIQUE,
 status VARCHAR(255) CHECK (status IN (
     'entwurf',
     'eingereicht',
@@ -432,7 +433,7 @@ ON DELETE CASCADE
 
 CREATE TABLE transcript_of_records (
 transcriptofrecords_id INTEGER PRIMARY KEY,
-auslandsaufenthalt_id INTEGER NOT NULL,
+auslandsaufenthalt_id INTEGER NOT NULL UNIQUE,
 status VARCHAR(255) CHECK (status IN (
     'ausstehend',
     'eingereicht',
@@ -547,7 +548,7 @@ LEFT JOIN nominierung n
 
 CREATE VIEW v_leistungsuebersicht AS
 SELECT
-    k.learning_agreement_version_id AS LA_version,
+    lav.versionsnummer AS LA_version,
     g.name AS Gastkurs_name,
     g.ects AS Gastkurs_ECTS,
     h.name AS HU_Kurs,
