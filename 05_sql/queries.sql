@@ -25,7 +25,7 @@ SELECT
 FROM
     public.v_bewerbungsuebersicht vb
 WHERE
-    vb.bewerbungsstatus = :bewerbungsstatus;
+    vb.bewerbungsstatus = $1;
 
 
 
